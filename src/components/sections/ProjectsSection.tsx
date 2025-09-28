@@ -1,8 +1,10 @@
+// src/components/sections/ProjectsSection.tsx
 'use client';
 import { motion } from 'framer-motion';
 import { 
   Layers, Github, ExternalLink, HeartPulse, MapPin, Building, Bot, Wrench 
 } from 'lucide-react';
+import Image from 'next/image'; // Thêm import Image
 
 export default function ProjectsSection() {
   return (
@@ -60,7 +62,7 @@ export default function ProjectsSection() {
                   Mã Nguồn
                 </a>
               </div>
-              <img 
+              <Image // ĐÃ SỬA: Thay <img> bằng <Image>
                 src="/projects/bjf-backend.png"
                 alt="BJF Backend System"
                 width={1200}
@@ -84,10 +86,12 @@ export default function ProjectsSection() {
               </div>
               
               <a href="https://tunglb941.pythonanywhere.com/" target="_blank" rel="noopener noreferrer" className="relative block h-full w-full">
-                 <img 
+                 <Image // ĐÃ SỬA: Thay <img> bằng <Image>
                     src="/projects/bjf-frontend.png"
                     alt="BJF Frontend Screenshot"
-                    className="rounded-b-lg w-full h-full object-cover"
+                    fill={true} // Sử dụng fill cho Image bên trong thẻ <a> để lấy kích thước từ parent
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-b-lg"
                  />
                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="text-center text-white">
@@ -112,10 +116,10 @@ export default function ProjectsSection() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="grid grid-cols-2 gap-4"
             >
-              <img src="/projects/doctor-ai-1.jpg" alt="Doctor AI Screen 1" width={200} height={400} className="rounded-xl shadow-lg transform rotate-3 border-2 border-white/10 mx-auto w-full h-auto" />
-              <img src="/projects/doctor-ai-2.jpg" alt="Doctor AI Screen 2" width={200} height={400} className="rounded-xl shadow-lg transform -rotate-3 mt-8 border-2 border-white/10 mx-auto w-full h-auto" />
-              <img src="/projects/doctor-ai-3.jpg" alt="Doctor AI Screen 3" width={200} height={400} className="rounded-xl shadow-lg transform -rotate-2 border-2 border-white/10 mx-auto w-full h-auto" />
-              <img src="/projects/doctor-ai-4.jpg" alt="Doctor AI Screen 4" width={200} height={400} className="rounded-xl shadow-lg transform rotate-2 mt-8 border-2 border-white/10 mx-auto w-full h-auto" />
+              <Image src="/projects/doctor-ai-1.jpg" alt="Doctor AI Screen 1" width={200} height={400} className="rounded-xl shadow-lg transform rotate-3 border-2 border-white/10 mx-auto w-full h-auto" /> {/* ĐÃ SỬA */}
+              <Image src="/projects/doctor-ai-2.jpg" alt="Doctor AI Screen 2" width={200} height={400} className="rounded-xl shadow-lg transform -rotate-3 mt-8 border-2 border-white/10 mx-auto w-full h-auto" /> {/* ĐÃ SỬA */}
+              <Image src="/projects/doctor-ai-3.jpg" alt="Doctor AI Screen 3" width={200} height={400} className="rounded-xl shadow-lg transform -rotate-2 border-2 border-white/10 mx-auto w-full h-auto" /> {/* ĐÃ SỬA */}
+              <Image src="/projects/doctor-ai-4.jpg" alt="Doctor AI Screen 4" width={200} height={400} className="rounded-xl shadow-lg transform rotate-2 mt-8 border-2 border-white/10 mx-auto w-full h-auto" /> {/* ĐÃ SỬA */}
             </motion.div>
             
             {/* Cột phải: Mô tả Doctor AI */}
@@ -176,7 +180,7 @@ export default function ProjectsSection() {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <img 
+              <Image // ĐÃ SỬA: Thay <img> bằng <Image>
                 src="/projects/nanky-beauty.jpg"
                 alt="Nanky Beauty Storefront"
                 width={800}
