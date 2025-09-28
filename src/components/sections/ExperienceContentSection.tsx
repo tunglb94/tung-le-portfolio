@@ -84,7 +84,7 @@ export default function ExperienceContentSection() {
                 Sở hữu kỹ năng <strong className="highlight text-xl">phân tích số liệu</strong> ở cấp độ chuyên gia, kết hợp với hệ thống <strong className="highlight text-xl">CRM tự phát triển</strong> để <strong className="text-white font-semibold">tracking và đo lường dữ liệu chuyên sâu</strong>.
               </li>
               <li>
-                Năng lực 'giải mã' hành vi khách hàng, đưa ra các chỉ số chính xác nhằm <strong className="text-white font-semibold">tối ưu hiệu suất quảng cáo</strong> đến mức độ cao nhất.
+                Năng lực &apos;giải mã&apos; hành vi khách hàng, đưa ra các chỉ số chính xác nhằm <strong className="text-white font-semibold">tối ưu hiệu suất quảng cáo</strong> đến mức độ cao nhất.
               </li>
               <li>
                 Cung cấp những <strong className="highlight text-xl">insight đắt giá</strong>, giúp <strong className="text-white font-semibold">BOD (Ban Giám Đốc)</strong> đưa ra các quyết định chiến lược đúng đắn, đảm bảo <strong className="text-white font-semibold">hiệu quả vượt trội</strong> và <strong className="highlight text-xl">tiết kiệm tối đa ngân sách</strong>.
