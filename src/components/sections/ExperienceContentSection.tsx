@@ -84,7 +84,7 @@ export default function ExperienceContentSection() {
                 Sở hữu kỹ năng <strong className="highlight text-xl">phân tích số liệu</strong> ở cấp độ chuyên gia, kết hợp với hệ thống <strong className="highlight text-xl">CRM tự phát triển</strong> để <strong className="text-white font-semibold">tracking và đo lường dữ liệu chuyên sâu</strong>.
               </li>
               <li>
-                Năng lực "giải mã" hành vi khách hàng, đưa ra các chỉ số chính xác nhằm <strong className="text-white font-semibold">tối ưu hiệu suất quảng cáo</strong> đến mức độ cao nhất.
+                Năng lực 'giải mã' hành vi khách hàng, đưa ra các chỉ số chính xác nhằm <strong className="text-white font-semibold">tối ưu hiệu suất quảng cáo</strong> đến mức độ cao nhất.
               </li>
               <li>
                 Cung cấp những <strong className="highlight text-xl">insight đắt giá</strong>, giúp <strong className="text-white font-semibold">BOD (Ban Giám Đốc)</strong> đưa ra các quyết định chiến lược đúng đắn, đảm bảo <strong className="text-white font-semibold">hiệu quả vượt trội</strong> và <strong className="highlight text-xl">tiết kiệm tối đa ngân sách</strong>.
@@ -127,7 +127,7 @@ export default function ExperienceContentSection() {
             <SkillCard icon={<Code size={28} />} title="Công Nghệ & Lập Trình">
               <div className="flex flex-wrap gap-3 mt-2">
                 <ToolTag name="Python" logo={<SvgLogo path="M12 24c-3.23 0-6.3-1.32-8.5-3.5S0 15.23 0 12c0-3.31 1.34-6.41 3.5-8.5C5.7 1.32 8.8.01 12 .01c3.1 0 6.1 1.2 8.5 3.5 2.3 2.3 3.5 5.3 3.5 8.5s-1.2 6.2-3.5 8.5S15.1 24 12 24zm-1-16H9v3h2v10H9v3h5c3.31 0 5-1.69 5-5s-1.69-5-5-5h-2V8z" className="h-4 w-4 text-[#3776AB]" />} />
-                <ToolTag name="HTML" logo={<SvgLogo path="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.623L17.531 6l-.233 2.622-8.532 1.128zm.232 5.25l-.232-2.622 4.488.563.142-1.58-4.9-1.042-.344-3.832h10.42l-.344 3.832h-4.9l.142 1.58 4.488-.563-.344 3.832-4.488 1.128-4.488-1.128z" className="h-4 w-4 text-[#E34F26]" />} />
+                <ToolTag name="HTML" logo={<SvgLogo path="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.623L17.531 6l-.233 2.622-8.532 1.128zm.232 5.25l-.232-2.622 4.488.563.142-1.58-4.9-1.042-.344-3.832h10.42l-.344 3.832-4.9l.142 1.58 4.488-.563-.344 3.832-4.488 1.128-4.488-1.128z" className="h-4 w-4 text-[#E34F26]" />} />
                 <ToolTag name="CSS" logo={<SvgLogo path="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.531 6l-.232 2.622-8.532-1.128.232-2.623 8.532 1.128zM9 12.25l.232 2.622 2.743.765 2.744-.765.232-2.622H9zm-.232 5.25l-.232-2.622-4.488-1.128.344-3.832h4.608l.232 2.622 4.488 1.128 4.488-1.128.232-2.622h4.608l-.344 3.832-4.488 1.128-4.488-1.128z" className="h-4 w-4 text-[#1572B6]" />} />
                 <ToolTag name="SQL" logo={<SvgLogo path="M0 0v24h24V0H0zm18.532 18.532A6.533 6.533 0 0112 20.264a6.533 6.533 0 01-6.532-1.732A6.533 6.533 0 013.736 12a6.533 6.533 0 011.732-6.532A6.533 6.533 0 0112 3.736a6.533 6.533 0 016.532 1.732A6.533 6.533 0 0120.264 12a6.533 6.533 0 01-1.732 6.532z" className="h-4 w-4 text-[#F29111]" />} />
                 <ToolTag name="Visual Studio Code" />

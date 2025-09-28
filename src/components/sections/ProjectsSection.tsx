@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { 
   Layers, Github, ExternalLink, HeartPulse, MapPin, Building, Bot, Wrench 
 } from 'lucide-react';
-import Image from 'next/image'; // Thêm import Image
+import Image from 'next/image'; // Đã thêm: Import Image
 
 export default function ProjectsSection() {
   return (
@@ -89,7 +89,7 @@ export default function ProjectsSection() {
                  <Image // ĐÃ SỬA: Thay <img> bằng <Image>
                     src="/projects/bjf-frontend.png"
                     alt="BJF Frontend Screenshot"
-                    fill={true} // Sử dụng fill cho Image bên trong thẻ <a> để lấy kích thước từ parent
+                    fill={true} 
                     style={{ objectFit: 'cover' }}
                     className="rounded-b-lg"
                  />
