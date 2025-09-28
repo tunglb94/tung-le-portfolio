@@ -5,14 +5,14 @@ import { motion } from 'framer-motion';
 import { Mail, MessageSquare, Phone } from 'lucide-react'; // Thêm import icon
 
 const clientLogos = [
- { src: '/logos/GNG.png', alt: 'Bernard Healthcare', url: 'https://bernard.vn/' },
- { src: '/logos/intermec.png', alt: 'InterMec', url: 'https://intermec.vn/' },
- { src: '/logos/jnt-express.png', alt: 'J&T Express', url: 'https://jtexpress.vn/' },
- { src: '/logos/meta.png', alt: 'Meta', url: 'https://business.facebook.com/' }, 
- { src: '/logos/tiktok.png', alt: 'TikTok', url: 'https://www.tiktok.com/business/' },
- { src: '/logos/USAC.png', alt: 'USAC Chiropractic', url: 'https://usac.vn/' },
- { src: '/logos/Vinamilk.png', alt: 'Vinamilk', url: 'https://www.vinamilk.com.vn/' },
- { src: '/logos/bichna.png', alt: 'Bichna Clinic', url: 'https://bichnabeautyvn.com/' },
+  { src: '/logos/GNG.png', alt: 'Bernard Healthcare', url: 'https://bernard.vn/' },
+  { src: '/logos/intermec.png', alt: 'InterMec', url: 'https://intermec.vn/' },
+  { src: '/logos/jnt-express.png', alt: 'J&T Express', url: 'https://jtexpress.vn/' },
+  { src: '/logos/meta.png', alt: 'Meta', url: 'https://business.facebook.com/' },
+  { src: '/logos/tiktok.png', alt: 'TikTok', url: 'https://www.tiktok.com/business/' },
+  { src: '/logos/USAC.png', alt: 'USAC Chiropractic', url: 'https://usac.vn/' },
+  { src: '/logos/Vinamilk.png', alt: 'Vinamilk', url: 'https://www.vinamilk.com.vn/' },
+  { src: '/logos/bichna.png', alt: 'Bichna Clinic', url: 'https://bichnabeautyvn.com/' },
 ];
 
 const containerVariants = {
@@ -28,7 +28,8 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, x: -50 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  // FIX: Thay thế chuỗi "easeOut" bằng mảng Cubic-Bezier để thỏa mãn TypeScript.
+  show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.25, 1, 0.5, 1] } }, 
 };
 
 // --- Dữ liệu cho 3 nút CTA ---
@@ -55,7 +56,6 @@ const contactLinks = [
     target: '_self'
   },
 ];
-
 
 export default function HeroSection() {
   return (
