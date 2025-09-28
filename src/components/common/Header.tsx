@@ -14,13 +14,15 @@ export default function Header() {
   const lenis = useLenis()
 
   const handleScrollTo = (target: string) => {
-    if (lenis) {
+    // Chỉ cuộn nếu Lenis instance đã khởi tạo thành công
+    if (lenis) { 
       lenis.scrollTo(target, {
-        offset: -80,
+        offset: -80, // Offset 80px để tránh bị header che mất
         duration: 1.5,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       })
     }
+    // Nếu Lenis chưa sẵn sàng, trình duyệt sẽ dùng cuộn mặc định (scroll-behavior: smooth)
   }
 
   return (
@@ -30,8 +32,11 @@ export default function Header() {
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <a 
-          href="#" 
-          onClick={() => handleScrollTo('#hero')}
+          href="#hero" // Đảm bảo trỏ về ID #hero
+          onClick={(e) => {
+             e.preventDefault();
+             handleScrollTo('#hero'); // Cuộn về HeroSection
+          }}
           className="text-2xl font-bold tracking-wider text-white"
         >
           Tùng Lê Portfolio
@@ -41,10 +46,10 @@ export default function Header() {
           {navLinks.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={link.href} // Ví dụ: #about
               onClick={(e) => {
-                e.preventDefault()
-                handleScrollTo(link.href)
+                e.preventDefault() // Ngăn chặn hành vi mặc định của thẻ <a>
+                handleScrollTo(link.href) // Gọi hàm cuộn mượt đến ID
               }}
               className="text-gray-300 hover:text-cyan-400 transition-colors duration-300"
             >
