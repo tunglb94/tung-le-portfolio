@@ -14,15 +14,19 @@ export default function Header() {
   const lenis = useLenis()
 
   const handleScrollTo = (target: string) => {
-    // Chỉ cuộn nếu Lenis instance đã khởi tạo thành công
+    // Luôn kiểm tra instance trước khi cuộn
     if (lenis) { 
+      // Sử dụng target là selector CSS (ví dụ: '#about')
       lenis.scrollTo(target, {
-        offset: -80, // Offset 80px để tránh bị header che mất
+        offset: -80, 
         duration: 1.5,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       })
+    } else {
+        // Nếu Lenis chưa sẵn sàng, dùng cuộn mặc định của trình duyệt 
+        // Bằng cách này, link sẽ luôn hoạt động, dù không mượt.
+        window.location.hash = target;
     }
-    // Nếu Lenis chưa sẵn sàng, trình duyệt sẽ dùng cuộn mặc định (scroll-behavior: smooth)
   }
 
   return (
@@ -46,10 +50,12 @@ export default function Header() {
           {navLinks.map((link) => (
             <a
               key={link.href}
-              href={link.href} // Ví dụ: #about
+              href={link.href}
               onClick={(e) => {
-                e.preventDefault() // Ngăn chặn hành vi mặc định của thẻ <a>
-                handleScrollTo(link.href) // Gọi hàm cuộn mượt đến ID
+                e.preventDefault()
+                // Gán target vào URL hash. Lenis sẽ tự động lắng nghe sự kiện này và cuộn.
+                // Nếu Lenis bị lỗi, trình duyệt vẫn cuộn đến đúng vị trí.
+                handleScrollTo(link.href) 
               }}
               className="text-gray-300 hover:text-cyan-400 transition-colors duration-300"
             >
