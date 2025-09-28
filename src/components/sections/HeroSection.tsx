@@ -28,8 +28,8 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, x: -50 },
-  // FIX: Thay thế chuỗi "easeOut" bằng mảng Cubic-Bezier để thỏa mãn TypeScript.
-  show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.25, 1, 0.5, 1] } }, 
+  // ĐÃ SỬA LỖI: Xóa thuộc tính 'ease' để tránh lỗi Type Error của Framer Motion.
+  show: { opacity: 1, x: 0, transition: { duration: 0.6 } }, 
 };
 
 // --- Dữ liệu cho 3 nút CTA ---
