@@ -1,0 +1,17 @@
+{
+  "header": {
+    "nav_about": "Tùng Lê là ai?",
+    "nav_experience_content": "Kinh nghiệm làm việc",
+    "nav_experience_process": "Quá trình làm việc",
+    "nav_projects": "Dự án đã làm"
+  },
+  "hero": {
+    "title": "Tùng Lê: Kiến Tạo Chiến Lược Marketing Đột Phá",
+    "description": "Với hơn 8 năm kinh nghiệm chuyên sâu trong lĩnh vực marketing, trong đó có 3 năm ở vị trí Leader và 2 năm ở vị trí Manager. Tùng Lê chuyên setup, vận hành mảng marketing cho các doanh nghiệp vừa và nhỏ, đồng thời tư vấn chiến lược marketing hiệu quả cho BOD, đặc biệt tập trung vào Performance Marketing.",
+    "contact_email": "tunglb94@gmail.com",
+    "contact_phone": "094.632.8867",
+    "cta_email": "Gửi Email Ngay",
+    "cta_zalo": "Nhắn Zalo",
+    "cta_call": "Gọi Ngay"
+  }
+}
