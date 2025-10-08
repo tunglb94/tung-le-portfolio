@@ -2,7 +2,7 @@
 'use client'; 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Mail, MessageSquare, Phone } from 'lucide-react'; // Thêm import icon
+import { Mail, MessageSquare, Phone } from 'lucide-react'; // Import icon đã có sẵn
 
 const clientLogos = [
   { src: '/logos/GNG.png', alt: 'Bernard Healthcare', url: 'https://bernard.vn/' },
@@ -28,11 +28,9 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, x: -50 },
-  // ĐÃ SỬA LỖI: Xóa thuộc tính 'ease' để tránh lỗi Type Error của Framer Motion.
   show: { opacity: 1, x: 0, transition: { duration: 0.6 } }, 
 };
 
-// --- Dữ liệu cho 3 nút CTA ---
 const contactLinks = [
   { 
     label: 'Gửi Email Ngay', 
@@ -61,9 +59,8 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center pt-24 pb-20 overflow-hidden bg-zinc-950 text-white" // Tăng padding bottom một chút
+      className="relative min-h-screen flex items-center justify-center pt-24 pb-20 overflow-hidden bg-zinc-950 text-white"
     >
-      {/* --- THAY ĐỔI: Đổi items-center thành items-end --- */}
       <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-end">
         {/* === Cột bên trái: Nội dung văn bản === */}
         <div className="flex flex-col justify-center order-2 md:order-1 text-center md:text-left">
@@ -79,9 +76,32 @@ export default function HeroSection() {
             <span className="highlight"> Performance Marketing</span>.
           </p>
           
-          {/* === NEW: Contact Buttons (CTA) === */}
+          {/* === PHẦN MỚI ĐƯỢC THÊM VÀO === */}
           <motion.div
-            className="flex flex-wrap justify-center md:justify-start gap-4 mt-4 mb-8" // Đặt margin để tạo khoảng cách hợp lý
+            className="flex flex-col sm:flex-row justify-center md:justify-start gap-x-8 gap-y-4 mb-8 text-lg"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="flex items-center justify-center md:justify-start">
+              <Mail size={20} className="mr-2 text-cyan-400" />
+              <a href="mailto:tunglb94@gmail.com" className="text-gray-300 hover:text-white">
+                tunglb94@gmail.com
+              </a>
+            </div>
+            <div className="flex items-center justify-center md:justify-start">
+              <Phone size={20} className="mr-2 text-cyan-400" />
+              <a href="tel:0946328867" className="text-gray-300 hover:text-white">
+                094.632.8867
+              </a>
+            </div>
+          </motion.div>
+          {/* === KẾT THÚC PHẦN MỚI === */}
+
+          {/* === Contact Buttons (CTA) === */}
+          <motion.div
+            className="flex flex-wrap justify-center md:justify-start gap-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
@@ -100,8 +120,6 @@ export default function HeroSection() {
               </a>
             ))}
           </motion.div>
-          {/* === Kết thúc: Contact Buttons (CTA) === */}
-
 
           {/* === Logo khách hàng === */}
           <div className="mt-12 md:mt-16 text-gray-400">
