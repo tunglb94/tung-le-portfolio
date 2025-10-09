@@ -4,13 +4,17 @@ import { motion } from 'framer-motion';
 import { 
   Layers, Github, ExternalLink, HeartPulse, MapPin, Building, Bot, Wrench 
 } from 'lucide-react';
-import Image from 'next/image'; // Đã thêm: Import Image
+import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translations } from '@/lib/translations';
 
 export default function ProjectsSection() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <section id="projects" className="bg-zinc-950 py-20 text-white">
       <div className="container mx-auto px-6">
-        {/* Tiêu đề section */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -19,18 +23,16 @@ export default function ProjectsSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-extrabold hero-text-gradient">
-            Các Dự Án Đã Triển Khai
+            {t.projectsTitle}
           </h2>
           <p className="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">
-            Từ ý tưởng, chiến lược đến triển khai thực tế và đo lường hiệu quả.
+            {t.projectsSubtitle}
           </p>
         </motion.div>
 
-        {/* --- Dự án BJF Jewelry Store --- */}
         <div className="mb-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             
-            {/* Cột trái: Mô tả BJF */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -38,31 +40,27 @@ export default function ProjectsSection() {
               transition={{ duration: 0.8 }}
             >
               <h3 className="text-3xl font-bold text-cyan-400 mb-4">
-                Hệ thống Website Vàng Bạc Đá Quý BJF
+                {t.bjfTitle}
               </h3>
-              <p className="text-lg text-gray-300 mb-4">
-                Xây dựng và phát triển một hệ thống <strong className="highlight">full-stack</strong> toàn diện, bao gồm cả frontend và backend cho thương hiệu trang sức BJF. 
-                Hệ thống backend được thiết kế riêng, cung cấp một giao diện quản trị mạnh mẽ cho phép <strong className="text-white">quản lý toàn bộ sản phẩm, đơn hàng, nhân viên, và dữ liệu khách hàng</strong> một cách chi tiết và bảo mật.
-              </p>
+              <p className="text-lg text-gray-300 mb-4" dangerouslySetInnerHTML={{ __html: t.bjfDescription }}/>
 
-              {/* Thông tin chi tiết về BJF */}
               <div className="text-gray-400 text-base mb-6 space-y-2">
-                <p><strong>Công ty:</strong> BJF Group</p>
-                <p className="flex items-center"><MapPin size={16} className="mr-2 text-cyan-400"/> Địa chỉ: 77 Đ. Nguyễn Duy Dương, Phường 9, Quận 5, Hồ Chí Minh</p>
-                <p><strong>Website chính thức:</strong> <a href="https://bjf.com.vn/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">bjf.com.vn</a></p>
+                <p><strong>{t.company}:</strong> BJF Group</p>
+                <p className="flex items-center"><MapPin size={16} className="mr-2 text-cyan-400"/>{t.address}: 77 Đ. Nguyễn Duy Dương, Phường 9, Quận 5, Hồ Chí Minh</p>
+                <p><strong>{t.website}:</strong> <a href="https://bjf.com.vn/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">bjf.com.vn</a></p>
               </div>
 
               <div className="flex items-center gap-4 mb-8">
                 <a href="https://tunglb941.pythonanywhere.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-cyan-600 hover:bg-cyan-500 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
                   <ExternalLink size={20} />
-                  Xem Live
+                  {t.viewLive}
                 </a>
                 <a href="https://github.com/tunglb94/bjf-jewelry-store" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-zinc-700 hover:bg-zinc-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
                   <Github size={20} />
-                  Mã Nguồn
+                  {t.sourceCode}
                 </a>
               </div>
-              <Image // ĐÃ SỬA: Thay <img> bằng <Image>
+              <Image
                 src="/projects/bjf-backend.png"
                 alt="BJF Backend System"
                 width={1200}
@@ -71,7 +69,6 @@ export default function ProjectsSection() {
               />
             </motion.div>
 
-            {/* Cột phải: Ảnh Frontend BJF */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -86,7 +83,7 @@ export default function ProjectsSection() {
               </div>
               
               <a href="https://tunglb941.pythonanywhere.com/" target="_blank" rel="noopener noreferrer" className="relative block h-full w-full">
-                 <Image // ĐÃ SỬA: Thay <img> bằng <Image>
+                 <Image
                     src="/projects/bjf-frontend.png"
                     alt="BJF Frontend Screenshot"
                     fill={true} 
@@ -96,7 +93,7 @@ export default function ProjectsSection() {
                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="text-center text-white">
                        <ExternalLink size={40} />
-                       <p className="mt-2 text-xl font-bold">Click để xem trang live</p>
+                       <p className="mt-2 text-xl font-bold">{t.clickViewLive}</p>
                     </div>
                  </div>
               </a>
@@ -104,25 +101,23 @@ export default function ProjectsSection() {
           </div>
         </div>
 
-        {/* --- Dự án Doctor AI --- */}
         <div className="mb-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-            {/* Cột trái: Collage ảnh ứng dụng */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="grid grid-cols-2 gap-4"
+              // Điều chỉnh grid và kích thước ảnh tại đây
+              className="grid grid-cols-2 gap-3 max-w-sm mx-auto p-4 bg-zinc-800/50 rounded-lg shadow-inner border border-white/10" // Thêm padding và background cho khung
             >
-              <Image src="/projects/doctor-ai-1.jpg" alt="Doctor AI Screen 1" width={200} height={400} className="rounded-xl shadow-lg transform rotate-3 border-2 border-white/10 mx-auto w-full h-auto" /> {/* ĐÃ SỬA */}
-              <Image src="/projects/doctor-ai-2.jpg" alt="Doctor AI Screen 2" width={200} height={400} className="rounded-xl shadow-lg transform -rotate-3 mt-8 border-2 border-white/10 mx-auto w-full h-auto" /> {/* ĐÃ SỬA */}
-              <Image src="/projects/doctor-ai-3.jpg" alt="Doctor AI Screen 3" width={200} height={400} className="rounded-xl shadow-lg transform -rotate-2 border-2 border-white/10 mx-auto w-full h-auto" /> {/* ĐÃ SỬA */}
-              <Image src="/projects/doctor-ai-4.jpg" alt="Doctor AI Screen 4" width={200} height={400} className="rounded-xl shadow-lg transform rotate-2 mt-8 border-2 border-white/10 mx-auto w-full h-auto" /> {/* ĐÃ SỬA */}
+              <Image src="/projects/doctor-ai-1.jpg" alt="Doctor AI Screen 1" width={100} height={200} className="rounded-xl shadow-lg transform rotate-3 border-2 border-white/10 mx-auto w-full h-auto" />
+              <Image src="/projects/doctor-ai-2.jpg" alt="Doctor AI Screen 2" width={100} height={200} className="rounded-xl shadow-lg transform -rotate-3 mt-4 border-2 border-white/10 mx-auto w-full h-auto" /> {/* Giảm mt-8 xuống mt-4 */}
+              <Image src="/projects/doctor-ai-3.jpg" alt="Doctor AI Screen 3" width={100} height={200} className="rounded-xl shadow-lg transform -rotate-2 border-2 border-white/10 mx-auto w-full h-auto" />
+              <Image src="/projects/doctor-ai-4.jpg" alt="Doctor AI Screen 4" width={100} height={200} className="rounded-xl shadow-lg transform rotate-2 mt-4 border-2 border-white/10 mx-auto w-full h-auto" /> {/* Giảm mt-8 xuống mt-4 */}
             </motion.div>
             
-            {/* Cột phải: Mô tả Doctor AI */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -132,24 +127,20 @@ export default function ProjectsSection() {
             >
               <HeartPulse size={40} className="text-cyan-400 mb-4" />
               <h3 className="text-3xl font-bold text-cyan-400 mb-4">
-                Ứng dụng Tư vấn Sức khỏe AI - Doctor AI
+                {t.doctorAiTitle}
               </h3>
-              <p className="text-lg text-gray-300 mb-6">
-                Một dự án <strong className="highlight">vì cộng đồng</strong>, sử dụng sức mạnh của Trí tuệ nhân tạo để mang lại sự hỗ trợ y tế ban đầu cho mọi người. Ứng dụng giúp:
-              </p>
+              <p className="text-lg text-gray-300 mb-6" dangerouslySetInnerHTML={{ __html: t.doctorAiDescription }}/>
               <ul className="space-y-4 text-lg text-gray-300 list-disc list-inside">
-                <li><strong className="text-white">Phân tích triệu chứng:</strong> Người dùng có thể mô tả tình trạng để AI đưa ra những chẩn đoán và lời khuyên sơ bộ.</li>
-                <li><strong className="text-white">Giải quyết vấn đề thầm kín:</strong> Cung cấp một không gian an toàn để hỏi về các bệnh lý nhạy cảm, khó chia sẻ trực tiếp.</li>
-                <li><strong className="text-white">Đọc kết quả y tế:</strong> Hỗ trợ đọc và giải thích các kết quả xét nghiệm phức tạp như X-quang, MRI bằng công nghệ AI tiên tiến.</li>
+                <li dangerouslySetInnerHTML={{ __html: t.doctorAiPoint1 }}/>
+                <li dangerouslySetInnerHTML={{ __html: t.doctorAiPoint2 }}/>
+                <li dangerouslySetInnerHTML={{ __html: t.doctorAiPoint3 }}/>
               </ul>
             </motion.div>
           </div>
         </div>
 
-        {/* --- Dự án Nanky Beauty --- */}
         <div className="mb-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Cột trái: Mô tả Nanky Beauty */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -158,11 +149,9 @@ export default function ProjectsSection() {
             >
               <Building size={40} className="text-cyan-400 mb-4" />
               <h3 className="text-3xl font-bold text-cyan-400 mb-4">
-                Founder Thương Hiệu Nanky Beauty
+                {t.nankyTitle}
               </h3>
-              <p className="text-lg text-gray-300 mb-6">
-                Với vai trò là <strong className="highlight">Founder</strong>, đã xây dựng Nanky Beauty từ những viên gạch đầu tiên, định vị trở thành một trong những <strong className="text-white">hệ thống nối mi chuyên nghiệp và uy tín hàng đầu tại TP.HCM</strong>. Tập trung vào chất lượng dịch vụ cao cấp, đào tạo đội ngũ kỹ thuật viên bài bản và xây dựng một cộng đồng khách hàng trung thành thông qua các chiến lược branding và social media hiệu quả.
-              </p>
+              <p className="text-lg text-gray-300 mb-6" dangerouslySetInnerHTML={{ __html: t.nankyDescription }} />
               <div className="flex items-center gap-4">
                 <a href="https://www.instagram.com/nanky.beauty" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 text-white font-semibold py-2 px-4 rounded-lg transition-opacity">
                   Instagram
@@ -173,14 +162,13 @@ export default function ProjectsSection() {
               </div>
             </motion.div>
 
-            {/* Cột phải: Ảnh Nanky Beauty */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <Image // ĐÃ SỬA: Thay <img> bằng <Image>
+              <Image
                 src="/projects/nanky-beauty.jpg"
                 alt="Nanky Beauty Storefront"
                 width={800}
@@ -191,9 +179,7 @@ export default function ProjectsSection() {
           </div>
         </div>
 
-        {/* --- Các Tool & Hệ thống Tự Phát Triển --- */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Tool giá đất */}
           <motion.div
             className="bg-zinc-800/50 p-6 rounded-lg border border-white/10"
             initial={{ opacity: 0, y: 30 }}
@@ -202,19 +188,18 @@ export default function ProjectsSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <Bot size={28} className="text-cyan-400 mb-3" />
-            <h4 className="text-xl font-bold text-white mb-2">Tool Thu Thập Giá Đất</h4>
-            <p className="text-gray-300 mb-4">Hệ thống tự động quét và thu thập dữ liệu giá đất tại TP.HCM theo thời gian thực, phục vụ cho việc phân tích và đầu tư.</p>
+            <h4 className="text-xl font-bold text-white mb-2">{t.landPriceToolTitle}</h4>
+            <p className="text-gray-300 mb-4">{t.landPriceToolDesc}</p>
             <div className="flex items-center gap-4">
                 <a href="https://bjf-group-app.onrender.com/" target="_blank" rel="noopener noreferrer" className="text-sm flex items-center gap-2 text-cyan-400 hover:text-cyan-300">
-                  <ExternalLink size={16} /> Xem Live
+                  <ExternalLink size={16} /> {t.viewLive}
                 </a>
                 <a href="https://github.com/tunglb94/bjf" target="_blank" rel="noopener noreferrer" className="text-sm flex items-center gap-2 text-cyan-400 hover:text-cyan-300">
-                  <Github size={16} /> Mã Nguồn
+                  <Github size={16} /> {t.sourceCode}
                 </a>
               </div>
           </motion.div>
           
-          {/* CRM Nanky Beauty */}
           <motion.div
             className="bg-zinc-800/50 p-6 rounded-lg border border-white/10"
             initial={{ opacity: 0, y: 30 }}
@@ -223,11 +208,10 @@ export default function ProjectsSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Wrench size={28} className="text-cyan-400 mb-3" />
-            <h4 className="text-xl font-bold text-white mb-2">Hệ Thống CRM Nanky Beauty</h4>
-            <p className="text-gray-300">Phần mềm CRM được thiết kế riêng để quản lý lịch hẹn, thông tin khách hàng, và các chiến dịch marketing cho hệ thống spa.</p>
+            <h4 className="text-xl font-bold text-white mb-2">{t.nankyCrmTitle}</h4>
+            <p className="text-gray-300">{t.nankyCrmDesc}</p>
           </motion.div>
 
-          {/* Các tool khác */}
           <motion.div
             className="bg-zinc-800/50 p-6 rounded-lg border border-white/10"
             initial={{ opacity: 0, y: 30 }}
@@ -236,8 +220,8 @@ export default function ProjectsSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <Layers size={28} className="text-cyan-400 mb-3" />
-            <h4 className="text-xl font-bold text-white mb-2">...Và Nhiều Hệ Thống Khác</h4>
-            <p className="text-gray-300">Bao gồm CRM cho DNA và các phần mềm, tool tự phát triển khác nhằm tối ưu hóa quy trình làm việc và quản lý nguồn lực hiệu quả.</p>
+            <h4 className="text-xl font-bold text-white mb-2">{t.otherSystemsTitle}</h4>
+            <p className="text-gray-300">{t.otherSystemsDesc}</p>
           </motion.div>
         </div>
 

@@ -2,7 +2,9 @@
 'use client'; 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Mail, MessageSquare, Phone } from 'lucide-react'; // Import icon đã có sẵn
+import { Mail, MessageSquare, Phone } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext'; // Import hook
+import { translations } from '@/lib/translations'; // Import nội dung
 
 const clientLogos = [
   { src: '/logos/GNG.png', alt: 'Bernard Healthcare', url: 'https://bernard.vn/' },
@@ -31,31 +33,35 @@ const itemVariants = {
   show: { opacity: 1, x: 0, transition: { duration: 0.6 } }, 
 };
 
-const contactLinks = [
-  { 
-    label: 'Gửi Email Ngay', 
-    href: 'mailto:tunglb94@gmail.com', 
-    icon: Mail, 
-    color: 'bg-cyan-600 hover:bg-cyan-500',
-    target: '_self'
-  },
-  { 
-    label: 'Nhắn Zalo', 
-    href: 'https://zalo.me/0946328867', 
-    icon: MessageSquare, 
-    color: 'bg-blue-600 hover:bg-blue-500',
-    target: '_blank'
-  },
-  { 
-    label: 'Gọi Ngay', 
-    href: 'tel:0946328867', 
-    icon: Phone, 
-    color: 'bg-green-600 hover:bg-green-500',
-    target: '_self'
-  },
-];
-
 export default function HeroSection() {
+  const { language } = useLanguage(); // Lấy ngôn ngữ hiện tại
+  const t = translations[language]; // Lấy bộ text tương ứng
+
+  // Cập nhật lại contactLinks để dùng text từ file dịch
+  const contactLinks = [
+    { 
+      label: t.heroCTAEmail, 
+      href: 'mailto:tunglb94@gmail.com', 
+      icon: Mail, 
+      color: 'bg-cyan-600 hover:bg-cyan-500',
+      target: '_self'
+    },
+    { 
+      label: t.heroCTAZalo, 
+      href: 'https://zalo.me/0946328867', 
+      icon: MessageSquare, 
+      color: 'bg-blue-600 hover:bg-blue-500',
+      target: '_blank'
+    },
+    { 
+      label: t.heroCTACall, 
+      href: 'tel:0946328867', 
+      icon: Phone, 
+      color: 'bg-green-600 hover:bg-green-500',
+      target: '_self'
+    },
+  ];
+
   return (
     <section
       id="hero"
@@ -65,18 +71,13 @@ export default function HeroSection() {
         {/* === Cột bên trái: Nội dung văn bản === */}
         <div className="flex flex-col justify-center order-2 md:order-1 text-center md:text-left">
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6 hero-text-gradient">
-            Tùng Lê: Kiến Tạo Chiến Lược Marketing Đột Phá
+            {t.heroTitle}
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-xl mx-auto md:mx-0">
-            Với hơn <span className="highlight">8 năm kinh nghiệm</span> chuyên sâu trong lĩnh vực marketing,
-            trong đó có <span className="highlight">3 năm ở vị trí Leader</span> và
-            <span className="highlight">2 năm ở vị trí Manager</span>. Tùng Lê chuyên
-            <span className="highlight"> setup, vận hành mảng marketing</span> cho các doanh nghiệp vừa và nhỏ,
-            đồng thời tư vấn chiến lược marketing hiệu quả cho BOD, đặc biệt tập trung vào
-            <span className="highlight"> Performance Marketing</span>.
-          </p>
+          <p
+            className="text-lg md:text-xl text-gray-300 mb-8 max-w-xl mx-auto md:mx-0"
+            dangerouslySetInnerHTML={{ __html: t.heroDescription }}
+          />
           
-          {/* === PHẦN MỚI ĐƯỢC THÊM VÀO === */}
           <motion.div
             className="flex flex-col sm:flex-row justify-center md:justify-start gap-x-8 gap-y-4 mb-8 text-lg"
             initial={{ opacity: 0, y: 20 }}
@@ -97,7 +98,6 @@ export default function HeroSection() {
               </a>
             </div>
           </motion.div>
-          {/* === KẾT THÚC PHẦN MỚI === */}
 
           {/* === Contact Buttons (CTA) === */}
           <motion.div
@@ -123,7 +123,7 @@ export default function HeroSection() {
 
           {/* === Logo khách hàng === */}
           <div className="mt-12 md:mt-16 text-gray-400">
-            <h3 className="text-xl font-semibold mb-6">Các client đã tư vấn và làm việc:</h3>
+            <h3 className="text-xl font-semibold mb-6">{t.heroClients}</h3>
             
             <motion.div
               className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 justify-items-center md:justify-items-start"

@@ -2,16 +2,21 @@
 'use client'
 
 import { useLenis } from '@/lib/lenis'
-
-const navLinks = [
-  { href: '#about', label: 'Tùng Lê là ai?' },
-  { href: '#experience', label: 'Kinh nghiệm làm việc' },
-  { href: '#process', label: 'Quá trình làm việc' },
-  { href: '#projects', label: 'Dự án đã làm' },
-]
+import { useLanguage } from '@/contexts/LanguageContext'; // Import hook ngôn ngữ
+import { translations } from '@/lib/translations'; // Import nội dung dịch
 
 export default function Header() {
   const lenis = useLenis()
+  const { language, switchLanguage } = useLanguage(); // Lấy state ngôn ngữ
+  const t = translations[language]; // Lấy đúng bộ text theo ngôn ngữ
+
+  // Dữ liệu navLinks giờ sẽ lấy từ file dịch
+  const navLinks = [
+    { href: '#about', label: t.navAbout },
+    { href: '#experience', label: t.navExperience },
+    { href: '#process', label: t.navProcess },
+    { href: '#projects', label: t.navProjects },
+  ]
 
   const handleScrollTo = (target: string) => {
     // Luôn kiểm tra instance trước khi cuộn
@@ -24,7 +29,6 @@ export default function Header() {
       })
     } else {
         // Nếu Lenis chưa sẵn sàng, dùng cuộn mặc định của trình duyệt 
-        // Bằng cách này, link sẽ luôn hoạt động, dù không mượt.
         window.location.hash = target;
     }
   }
@@ -53,8 +57,6 @@ export default function Header() {
               href={link.href}
               onClick={(e) => {
                 e.preventDefault()
-                // Gán target vào URL hash. Lenis sẽ tự động lắng nghe sự kiện này và cuộn.
-                // Nếu Lenis bị lỗi, trình duyệt vẫn cuộn đến đúng vị trí.
                 handleScrollTo(link.href) 
               }}
               className="text-gray-300 hover:text-cyan-400 transition-colors duration-300"
@@ -62,6 +64,32 @@ export default function Header() {
               {link.label}
             </a>
           ))}
+
+          {/* === NÚT CHUYỂN NGÔN NGỮ === */}
+          <div className="flex items-center gap-2 ml-4">
+            <button
+              onClick={() => switchLanguage('vi')}
+              className={`px-2 py-1 text-sm font-semibold rounded-md transition-all duration-200 ${
+                language === 'vi' 
+                ? 'bg-cyan-500 text-white ring-2 ring-cyan-300' 
+                : 'text-gray-400 hover:bg-zinc-700 hover:text-white'
+              }`}
+            >
+              VN
+            </button>
+            <span className="text-gray-600">/</span>
+            <button
+              onClick={() => switchLanguage('en')}
+              className={`px-2 py-1 text-sm font-semibold rounded-md transition-all duration-200 ${
+                language === 'en' 
+                ? 'bg-cyan-500 text-white ring-2 ring-cyan-300' 
+                : 'text-gray-400 hover:bg-zinc-700 hover:text-white'
+              }`}
+            >
+              EN
+            </button>
+          </div>
+          {/* ============================= */}
         </nav>
       </div>
     </header>

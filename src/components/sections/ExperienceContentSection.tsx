@@ -3,44 +3,41 @@
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 import { useEffect } from 'react';
 import { BarChart, BrainCircuit, Users, Brush, Code, Bot, Clapperboard, ShieldCheck } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translations } from '@/lib/translations';
 
 // --- CÁC COMPONENT KHÁC GIỮ NGUYÊN ---
 const SvgLogo = ({ path, className = 'h-5 w-5', viewBox = '0 0 24 24' }: { path: string, className?: string, viewBox?: string }) => (
-  <svg className={className} role="img" viewBox={viewBox} xmlns="http://www.w3.org/2000/svg">
-    <path d={path} fill="currentColor" />
-  </svg>
-);
+    <svg className={className} role="img" viewBox={viewBox} xmlns="http://www.w3.org/2000/svg">
+      <path d={path} fill="currentColor" />
+    </svg>
+  );
 const ToolTag = ({ name, logo }: { name: string, logo?: React.ReactNode }) => (
-  <div className="flex items-center bg-zinc-700 text-gray-200 text-sm font-medium px-3 py-2 rounded-full">
+<div className="flex items-center bg-zinc-700 text-gray-200 text-sm font-medium px-3 py-2 rounded-full">
     {logo && <div className="mr-2">{logo}</div>}
     {name}
-  </div>
+</div>
 );
-
-// --- COMPONENT NỀN ĐỘNG ---
 const AnimatedBackground = () => {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      animate(mouseX, e.clientX);
-      animate(mouseY, e.clientY);
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
-
-  // --- DÒNG CODE ĐÃ ĐƯỢC SỬA LẠI ---
-  const background = useTransform(
-    [mouseX, mouseY],
-    ([x, y]) => `radial-gradient(400px at ${x}px ${y}px, rgba(45, 212, 191, 0.1), transparent 80%)`
-  );
-
-  return <motion.div style={{ background }} className="absolute inset-0 -z-10" />;
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+  
+    useEffect(() => {
+      const handleMouseMove = (e: MouseEvent) => {
+        animate(mouseX, e.clientX);
+        animate(mouseY, e.clientY);
+      };
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    }, [mouseX, mouseY]);
+  
+    const background = useTransform(
+      [mouseX, mouseY],
+      ([x, y]) => `radial-gradient(400px at ${x}px ${y}px, rgba(45, 212, 191, 0.1), transparent 80%)`
+    );
+  
+    return <motion.div style={{ background }} className="absolute inset-0 -z-10" />;
 };
-
-
 const SkillCard = ({ icon, title, children }: { icon: React.ReactNode, title: string, children: React.ReactNode }) => (
     <motion.div
       className="bg-zinc-800/50 p-6 rounded-lg border border-white/10 h-full"
@@ -59,6 +56,9 @@ const SkillCard = ({ icon, title, children }: { icon: React.ReactNode, title: st
   );
 
 export default function ExperienceContentSection() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <section id="experience" className="bg-zinc-900 py-20 text-white relative overflow-hidden">
       <AnimatedBackground />
@@ -70,52 +70,38 @@ export default function ExperienceContentSection() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold hero-text-gradient">Kinh Nghiệm & Năng Lực Chuyên Môn</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold hero-text-gradient">{t.experienceTitle}</h2>
           <p className="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">
-            Kết hợp tư duy chiến lược, kỹ năng phân tích dữ liệu chuyên sâu và năng lực quản trị để tối đa hóa hiệu quả marketing.
+            {t.experienceSubtitle}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
-          <SkillCard icon={<BarChart size={28} />} title="Phân Tích Dữ Liệu & Tư Vấn Chiến Lược">
+          <SkillCard icon={<BarChart size={28} />} title={t.dataStrategyTitle}>
             <ul className="space-y-4 list-none">
-              <li>
-                Sở hữu kỹ năng <strong className="highlight text-xl">phân tích số liệu</strong> ở cấp độ chuyên gia, kết hợp với hệ thống <strong className="highlight text-xl">CRM tự phát triển</strong> để <strong className="text-white font-semibold">tracking và đo lường dữ liệu chuyên sâu</strong>.
-              </li>
-              <li>
-                Năng lực &apos;giải mã&apos; hành vi khách hàng, đưa ra các chỉ số chính xác nhằm <strong className="text-white font-semibold">tối ưu hiệu suất quảng cáo</strong> đến mức độ cao nhất.
-              </li>
-              <li>
-                Cung cấp những <strong className="highlight text-xl">insight đắt giá</strong>, giúp <strong className="text-white font-semibold">BOD (Ban Giám Đốc)</strong> đưa ra các quyết định chiến lược đúng đắn, đảm bảo <strong className="text-white font-semibold">hiệu quả vượt trội</strong> và <strong className="highlight text-xl">tiết kiệm tối đa ngân sách</strong>.
-              </li>
+              <li dangerouslySetInnerHTML={{ __html: t.dataStrategyPoint1 }} />
+              <li dangerouslySetInnerHTML={{ __html: t.dataStrategyPoint2 }} />
+              <li dangerouslySetInnerHTML={{ __html: t.dataStrategyPoint3 }} />
             </ul>
           </SkillCard>
           
-          <SkillCard icon={<Users size={28} />} title="Quản Trị Đội Ngũ & Hiệu Suất">
+          <SkillCard icon={<Users size={28} />} title={t.teamPerformanceTitle}>
              <ul className="space-y-4 list-none">
-                <li>
-                    Xây dựng và quản lý đội ngũ marketing theo <strong className="highlight text-xl">hệ thống cấp bậc</strong> rõ ràng và hiệu quả.
-                </li>
-                <li>
-                    Áp dụng cơ chế <strong className="text-white font-semibold">theo dõi và báo cáo KPI</strong> minh bạch, giúp đánh giá chính xác kết quả và tạo động lực, thúc đẩy năng suất làm việc của từng cá nhân để đạt được mục tiêu chung của tổ chức.
-                </li>
+                <li dangerouslySetInnerHTML={{ __html: t.teamPerformancePoint1 }} />
+                <li dangerouslySetInnerHTML={{ __html: t.teamPerformancePoint2 }} />
              </ul>
           </SkillCard>
           
           <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <SkillCard icon={<ShieldCheck size={28} />} title="Tối Ưu Website & SEO">
+            <SkillCard icon={<ShieldCheck size={28} />} title={t.seoTitle}>
               <ul className="space-y-4 list-none text-base">
-                  <li>
-                      Thực hiện <strong className="text-white font-semibold">bảo trì, sao lưu dữ liệu</strong> và xây dựng hệ thống <strong className="highlight">an ninh mạng</strong>, chủ động chống lại các cuộc tấn công <strong className="text-white font-semibold">DDoS</strong>.
-                  </li>
-                  <li>
-                      Triển khai toàn diện chiến lược <strong className="highlight">SEO on-page và off-page</strong> để tối ưu hóa thứ hạng và tăng trưởng traffic bền vững.
-                  </li>
+                  <li dangerouslySetInnerHTML={{ __html: t.seoPoint1 }}/>
+                  <li dangerouslySetInnerHTML={{ __html: t.seoPoint2 }}/>
               </ul>
             </SkillCard>
 
-            <SkillCard icon={<Brush size={28} />} title="Công Cụ Sáng Tạo">
+            <SkillCard icon={<Brush size={28} />} title={t.creativeToolsTitle}>
               <div className="flex flex-wrap gap-3 mt-2">
                 <ToolTag name="Adobe Photoshop" logo={<SvgLogo path="M12.28 2.05h9.39v9.39h-9.39zM2.33 12.56h9.39v9.39H2.33zm12.9-.1h6.26v6.26h-6.26z" className="h-4 w-4 text-[#31A8FF]" />} />
                 <ToolTag name="Adobe Premiere" logo={<SvgLogo path="M12.28 2.05h9.39v9.39h-9.39zM2.33 12.56h9.39v9.39H2.33zm14.16-1.36h5v5h-5z" className="h-4 w-4 text-[#9999FF]" />} />
@@ -124,7 +110,7 @@ export default function ExperienceContentSection() {
               </div>
             </SkillCard>
             
-            <SkillCard icon={<Code size={28} />} title="Công Nghệ & Lập Trình">
+            <SkillCard icon={<Code size={28} />} title={t.techSkillsTitle}>
               <div className="flex flex-wrap gap-3 mt-2">
                 <ToolTag name="Python" logo={<SvgLogo path="M12 24c-3.23 0-6.3-1.32-8.5-3.5S0 15.23 0 12c0-3.31 1.34-6.41 3.5-8.5C5.7 1.32 8.8.01 12 .01c3.1 0 6.1 1.2 8.5 3.5 2.3 2.3 3.5 5.3 3.5 8.5s-1.2 6.2-3.5 8.5S15.1 24 12 24zm-1-16H9v3h2v10H9v3h5c3.31 0 5-1.69 5-5s-1.69-5-5-5h-2V8z" className="h-4 w-4 text-[#3776AB]" />} />
                 <ToolTag name="HTML" logo={<SvgLogo path="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.623L17.531 6l-.233 2.622-8.532 1.128zm.232 5.25l-.232-2.622 4.488.563.142-1.58-4.9-1.042-.344-3.832h10.42l-.344 3.832-4.9l.142 1.58 4.488-.563-.344 3.832-4.488 1.128-4.488-1.128z" className="h-4 w-4 text-[#E34F26]" />} />
@@ -135,7 +121,7 @@ export default function ExperienceContentSection() {
             </SkillCard>
 
             <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <SkillCard icon={<BrainCircuit size={28} />} title="Quản Lý & Vận Hành Marketing">
+                <SkillCard icon={<BrainCircuit size={28} />} title={t.marketingOpsTitle}>
                   <div className="flex flex-wrap gap-3 mt-2">
                     <ToolTag name="Google Firebase" logo={<SvgLogo path="m3.63 20.53 14.07-14.07-2.13-2.12L1.5 18.41z" className="h-4 w-4 text-[#FFCA28]" />} />
                     <ToolTag name="Google Analytics 4" logo={<SvgLogo path="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12zM9 12h2v6H9zm4 0h2v6h-2z" className="h-4 w-4 text-[#F9AB00]" />} />
@@ -145,7 +131,7 @@ export default function ExperienceContentSection() {
                   </div>
                 </SkillCard>
                 
-                <SkillCard icon={<Bot size={28} />} title="Công Cụ AI (General)">
+                <SkillCard icon={<Bot size={28} />} title={t.aiGeneralTitle}>
                   <div className="flex flex-wrap gap-3 mt-2">
                     <ToolTag name="ChatGPT" logo={<SvgLogo path="M21.285 18.497c-2.152 2.15-5.21 3.503-8.818 3.503-2.69 0-5.152-.77-7.22-2.126L3.92 20.12c.704.49 1.49.894 2.33.119L11.232 12 6.25 6.91l.244-4.83C7.2 2.05 8 2 8.7 2c3.608 0 6.666 1.353 8.818 3.503S21 11.21 21 14s-1.355 5.15-3.505 6.647z" className="h-4 w-4 text-[#75A99F]" />} />
                     <ToolTag name="Gemini" logo={<SvgLogo path="M12 24a1.85 1.85 0 0 1-1.3-.55l-9.15-9.14a1.85 1.85 0 0 1 0-2.6l9.14-9.15a1.85 1.85 0 0 1 2.6 0l9.15 9.14a1.85 1.85 0 0 1 0 2.6l-9.14 9.15a1.85 1.85 0 0 1-1.3.55zm-7.84-10.45l7.84 7.84 7.84-7.84-7.84-7.84z" className="h-4 w-4 text-[#8E77D8]" />} />
@@ -154,7 +140,7 @@ export default function ExperienceContentSection() {
                   </div>
                 </SkillCard>
 
-                <SkillCard icon={<Clapperboard size={28} />} title="Công Cụ AI (Image/Video)">
+                <SkillCard icon={<Clapperboard size={28} />} title={t.aiMediaTitle}>
                   <div className="flex flex-wrap gap-3 mt-2">
                     <ToolTag name="Veo" />
                     <ToolTag name="Nano Banana" />

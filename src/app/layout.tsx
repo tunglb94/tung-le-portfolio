@@ -2,7 +2,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { LenisProvider } from "@/lib/lenis"; // <--- Import Provider
+import { LenisProvider } from "@/lib/lenis";
+import { LanguageProvider } from "@/contexts/LanguageContext"; // <-- THÊM DÒNG NÀY
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <body className={inter.className}>
-        {/* Dòng này cực kỳ quan trọng */}
-        <LenisProvider>{children}</LenisProvider> 
+        {/* BỌC LanguageProvider BÊN NGOÀI */}
+        <LanguageProvider>
+          <LenisProvider>{children}</LenisProvider>
+        </LanguageProvider>
       </body>
     </html>
   );
