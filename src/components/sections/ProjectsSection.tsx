@@ -152,6 +152,12 @@ export default function ProjectsSection() {
                 {t.nankyTitle}
               </h3>
               <p className="text-lg text-gray-300 mb-6" dangerouslySetInnerHTML={{ __html: t.nankyDescription }} />
+              
+              {/* THÊM WEBSITE CỦA NANKY BEAUTY */}
+              <div className="text-gray-400 text-base mb-6 space-y-2">
+                <p><strong>{t.website}:</strong> <a href="http://nankybeauty.com/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">http://nankybeauty.com/</a></p>
+              </div>
+              
               <div className="flex items-center gap-4">
                 <a href="https://www.instagram.com/nanky.beauty" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 text-white font-semibold py-2 px-4 rounded-lg transition-opacity">
                   Instagram

@@ -4,18 +4,64 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/lib/translations';
+import { 
+    ExternalLink, Users, Zap, Database, Award, TrendingUp 
+} from 'lucide-react'; 
 
-// --- SVG Icons Mới (giữ nguyên) ---
-const TeamIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.084-1.283-.24-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.653.084-1.283.24-1.857m10.514-6.32a4.5 4.5 0 00-9.028 0m9.028 0a4.5 4.5 0 01-9.028 0M12 9a4.5 4.5 0 100-9 4.5 4.5 0 000 9z" /></svg>;
-const AdsIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-2.236 9.168-5.584M5.436 13.683L5 15c0 4.418 3.582 8 8 8s8-3.582 8-8-3.582-8-8-8c-1.482 0-2.868.405-4.12.983" /></svg>;
-const DataIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7a8 3 0 0116 0M12 11a8 3 0 00-8 3v1c0 2.21 3.582 4 8 4s8-1.79 8-4v-1a8 3 0 00-8-3z" /></svg>;
-const CertificateIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>;
-const TrophyIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>;
-const ChartIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>;
+
+// Dữ liệu Chứng Chỉ (ĐÃ CẬP NHẬT LINK CHỨNG CHỈ MỚI)
+const certifications = [
+  // Google
+  { src: '/about/google-search-cert.png', alt: 'Google Ads Search Certification', link: 'https://skillshop.credential.net/449524fe-376f-44b5-847f-281172716840#acc.Dkm0drOX' },
+  { src: '/about/google-display-cert.png', alt: 'Google Ads Display Certification', link: 'https://skillshop.credential.net/9e3f0309-ea8e-4df0-bd95-efe37028f0d0#acc.x7GOIcHd' },
+  { src: '/about/google-shopping-cert.png', alt: 'AI-Powered Shopping Ads Certification', link: 'https://skillshop.credential.net/1855207d-761f-4be7-945d-c1588312aa4b#acc.clvXwCjO' },
+  { src: '/about/google-measurement-cert.png', alt: 'Google Ads Measurement Certification', link: 'https://skillshop.credential.net/090a9aa8-2e5e-45c0-b7c0-e758a7d20f39#acc.MVNtD4mx' },
+  // Meta
+  { src: '/about/meta-community-cert.png', alt: 'Meta Community Strategies', link: 'https://certifications.facebookblueprint.com/student/award/nRs3ocTCrauNgbgAurkjhovB' },
+  { src: '/about/meta-instagram-cert.png', alt: 'Meta Instagram Business Presence', link: 'https://www.facebookblueprint.com/student/award/QbYt9fksupzExXzSVbbh8imA' },
+  { src: '/about/meta-facebook-cert.png', alt: 'Meta Facebook Page Presence', link: 'https://www.facebookblueprint.com/student/award/gyYk7aSoyPb4DF8GVJ7pfVtF' },
+  // CHỨNG CHỈ MỚI: Google AI Essentials (Đã cập nhật link)
+  { src: '/about/google-ai-essentials-cert.png', alt: 'Google AI Essentials', link: 'https://www.facebookblueprint.com/student/award/8cQjNDGzUh4NtE3RKH3kyc7x' },
+];
+
+const CertImage = ({ src, alt, link, index }: { src: string, alt: string, link: string, index: number }) => (
+    <motion.div
+        className="relative bg-zinc-800 rounded-lg overflow-hidden group border border-white/10 shadow-xl flex items-center justify-center w-full aspect-square"
+        // Animation được giữ nguyên
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.6, delay: index * 0.1 }}
+        whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+    >
+        <a href={link} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative">
+            <Image 
+                src={src} 
+                alt={alt} 
+                fill={true} 
+                style={{ objectFit: 'contain' }}
+                className="p-2 sm:p-4 transition-opacity duration-300 group-hover:opacity-80" 
+                unoptimized
+            />
+            <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <ExternalLink size={30} className="text-cyan-400" />
+            </div>
+        </a>
+    </motion.div>
+)
+
 
 export default function AboutSection() {
   const { language } = useLanguage();
   const t = translations[language];
+
+  // Icons
+  const TeamIcon = () => <Users className="h-8 w-8 text-cyan-400" />;
+  const AdsIcon = () => <Zap className="h-8 w-8 text-cyan-400" />; 
+  const DataIcon = () => <Database className="h-8 w-8 text-cyan-400" />; 
+  const CertificateIcon = () => <Award className="h-6 w-6 text-cyan-400" />; 
+  const TrophyIcon = () => <Award className="h-6 w-6 text-cyan-400" />; 
+  const ChartIcon = () => <TrendingUp className="h-6 w-6 text-cyan-400" />; 
 
   return (
     <section id="about" className="bg-zinc-900 py-20 text-white">
@@ -31,9 +77,12 @@ export default function AboutSection() {
           <p className="text-lg text-gray-400 mt-4">{t.aboutSubtitle}</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-5 gap-12 items-start">
-          <div className="md:col-span-3 space-y-12">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          
+          {/* CỘT BÊN TRÁI: NỘI DUNG CHÍNH */}
+          <div className="space-y-12">
             
+            {/* KHỐI 1: CORE COMPETENCIES (Delay 0.0) */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -66,22 +115,12 @@ export default function AboutSection() {
               </div>
             </motion.div>
             
+            {/* KHỐI 2: ACHIEVEMENTS (Delay 0.2) */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <h3 className="text-2xl font-bold text-cyan-400 mb-4 flex items-center gap-3"><CertificateIcon /> {t.certificationsTitle}</h3>
-              <p className="text-lg text-gray-300 mb-6" dangerouslySetInnerHTML={{ __html: t.certificationsDesc }} />
-              <Image src="/about/strategycoast.jpg" alt="StrategyCoast Coaches" width={800} height={400} className="rounded-lg shadow-lg" />
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
             >
               <h3 className="text-2xl font-bold text-cyan-400 mb-6 flex items-center gap-3"><TrophyIcon /> {t.achievementsTitle}</h3>
               <div className="space-y-6">
@@ -98,15 +137,52 @@ export default function AboutSection() {
                 </div>
               </div>
             </motion.div>
+            
+            {/* KHỐI 3: CERTIFICATIONS (CHỨNG CHỈ GOOGLE/META) */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <h3 className="text-2xl font-bold text-cyan-400 mb-4 flex items-center gap-3"><CertificateIcon /> {t.certificationsTitle}</h3>
+              <p className="text-lg text-gray-300 mb-6" dangerouslySetInnerHTML={{ __html: t.certificationsDesc }} />
+              
+              <div className="grid grid-cols-2 gap-4"> 
+                  {certifications.map((cert, index) => (
+                      <CertImage 
+                          key={index} 
+                          src={cert.src}
+                          alt={cert.alt} 
+                          link={cert.link} 
+                          index={index}
+                      />
+                  ))}
+              </div>
+            </motion.div>
           </div>
 
+          {/* CỘT BÊN PHẢI: ẢNH VÀ STRATEGYCOAST */}
           <motion.div 
-            className="md:col-span-2 space-y-6"
+            className="space-y-6 pt-1 md:pt-0" 
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
           >
+            
+            {/* StrategyCoast */}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+            >
+                <h3 className="text-xl font-bold text-white mb-4">Hoàn thành khóa học chuyên sâu StrategyCoast</h3>
+                <Image src="/about/strategycoast.jpg" alt="StrategyCoast Coaches" width={800} height={400} className="rounded-lg shadow-2xl object-cover w-full h-auto" />
+            </motion.div>
+            
+            {/* Các ảnh Meta Event */}
             <Image src="/about/meta-event-2.jpg" alt="Meta Event 2" width={500} height={400} className="rounded-lg shadow-2xl object-cover w-full" />
             <Image src="/about/meta-event-1.jpg" alt="Meta Event 1" width={500} height={400} className="rounded-lg shadow-2xl object-cover w-full" />
             <Image src="/about/meta-event-3.jpg" alt="Meta Event 3" width={500} height={400} className="rounded-lg shadow-2xl object-cover w-full" />
