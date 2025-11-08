@@ -9,7 +9,7 @@ import {
 } from 'lucide-react'; 
 
 
-// Dữ liệu Chứng Chỉ (ĐÃ CẬP NHẬT LINK CHỨNG CHỈ MỚI)
+// Dữ liệu Chứng Chỉ (Giữ nguyên)
 const certifications = [
   // Google
   { src: '/about/google-search-cert.png', alt: 'Google Ads Search Certification', link: 'https://skillshop.credential.net/449524fe-376f-44b5-847f-281172716840#acc.Dkm0drOX' },
@@ -20,7 +20,7 @@ const certifications = [
   { src: '/about/meta-community-cert.png', alt: 'Meta Community Strategies', link: 'https://certifications.facebookblueprint.com/student/award/nRs3ocTCrauNgbgAurkjhovB' },
   { src: '/about/meta-instagram-cert.png', alt: 'Meta Instagram Business Presence', link: 'https://www.facebookblueprint.com/student/award/QbYt9fksupzExXzSVbbh8imA' },
   { src: '/about/meta-facebook-cert.png', alt: 'Meta Facebook Page Presence', link: 'https://www.facebookblueprint.com/student/award/gyYk7aSoyPb4DF8GVJ7pfVtF' },
-  // CHỨNG CHỈ MỚI: Google AI Essentials (Đã cập nhật link)
+  // CHỨNG CHỈ MỚI: Google AI Essentials
   { src: '/about/google-ai-essentials-cert.png', alt: 'Google AI Essentials', link: 'https://www.facebookblueprint.com/student/award/8cQjNDGzUh4NtE3RKH3kyc7x' },
 ];
 
@@ -163,15 +163,12 @@ export default function AboutSection() {
           </div>
 
           {/* CỘT BÊN PHẢI: ẢNH VÀ STRATEGYCOAST */}
-          <motion.div 
+          {/* KHẮC PHỤC LỖI RENDER: ĐẶT MẶC ĐỊNH LÀ HIỂN THỊ */}
+          <div 
             className="space-y-6 pt-1 md:pt-0" 
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
           >
             
-            {/* StrategyCoast */}
+            {/* StrategyCoast (Thêm lại motion để giữ hiệu ứng animation) */}
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -182,12 +179,12 @@ export default function AboutSection() {
                 <Image src="/about/strategycoast.jpg" alt="StrategyCoast Coaches" width={800} height={400} className="rounded-lg shadow-2xl object-cover w-full h-auto" />
             </motion.div>
             
-            {/* Các ảnh Meta Event */}
+            {/* Các ảnh Meta Event (Có thể thêm motion cho từng ảnh nếu muốn) */}
             <Image src="/about/meta-event-2.jpg" alt="Meta Event 2" width={500} height={400} className="rounded-lg shadow-2xl object-cover w-full" />
             <Image src="/about/meta-event-1.jpg" alt="Meta Event 1" width={500} height={400} className="rounded-lg shadow-2xl object-cover w-full" />
             <Image src="/about/meta-event-3.jpg" alt="Meta Event 3" width={500} height={400} className="rounded-lg shadow-2xl object-cover w-full" />
             <Image src="/about/meta-event-4.jpg" alt="Meta Event 4" width={500} height={400} className="rounded-lg shadow-2xl object-cover w-full" />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
