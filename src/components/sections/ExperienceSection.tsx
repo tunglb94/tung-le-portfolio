@@ -5,6 +5,9 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/lib/translations';
 
 const experienceData = [
+  // --- THÊM MỚI TẠI ĐÂY ---
+  { date: '10/2026 - Present', company: 'V Medical Việt Nam', titleKey: 'jobTitleVMedical' },
+  // -------------------------
   { date: '09/2022 - 03/2025', company: 'USAC Group', titleKey: 'jobTitle2' },
   { date: '08/2021 - 08/2022', company: 'J&T Express Vietnam', titleKey: 'jobTitle3' },
   { date: '01/2019 - 04/2021', company: 'Vỹ Nam Group', titleKey: 'jobTitle4' },

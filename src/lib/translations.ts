@@ -32,6 +32,10 @@ export const translations = {
     certificationsTitle: 'Nền Tảng & Chứng Chỉ',
     certificationsDesc: 'Được đào tạo bài bản và sở hữu các chứng chỉ quan trọng từ <strong class="text-white">Google Ads (Search, Display, Shopping) & Measurement</strong>, <strong class="text-white">Meta Blueprint (Community, Instagram, Facebook Page)</strong>. Đồng thời, hoàn thành xuất sắc khóa học chuyên sâu <strong class="text-white">StrategyCoast</strong>.',
     achievementsTitle: 'Thành Tích Nổi Bật',
+    
+    // --- THÊM MỚI ---
+    achievementVMedical: '<strong class="text-white">V Medical:</strong> Trong 3 tháng, đưa doanh số <strong class="text-white">gấp 3 lần</strong> giai đoạn trước, và đạt mức <strong class="text-white">cao nhất từ khi thành lập</strong> doanh nghiệp. Phát triển hệ thống CRM, quản lý toàn diện.',
+    
     achievementJNT: '<strong class="text-white">J&T Express:</strong> Trong 6 tháng, đưa thương hiệu trở thành kênh có lượng follower về logistic <strong class="text-white">lớn nhất Việt Nam</strong>, vượt qua đối thủ GHTK.',
     achievementIntermec: '<strong class="text-white">Intermec:</strong> Vận hành & triển khai marketing thành công với <strong class="text-white">ROAS đạt 25%</strong>.',
     achievementBichNa: '<strong class="text-white">BichNa Beauty:</strong> Tăng trưởng mảng da liễu với <strong class="text-white">ROAS đạt 22%</strong>.',
@@ -57,6 +61,10 @@ export const translations = {
 
     // --- Experience Section (Timeline) ---
     workProcessTitle: 'Quá trình Làm Việc',
+    
+    // --- THÊM MỚI ---
+    jobTitleVMedical: 'Marketing Manager',
+    
     jobTitle1: 'Marketing Manager',
     jobTitle2: 'Marketing Manager',
     jobTitle3: 'Senior Digital Marketing Specialist',
@@ -126,6 +134,10 @@ export const translations = {
     certificationsTitle: 'Foundations & Certifications',
     certificationsDesc: 'Formally trained and hold key certifications from <strong class="text-white">Google Ads (Search, Display, Shopping) & Measurement</strong>, <strong class="text-white">Meta Blueprint (Community, Instagram, Facebook Page)</strong>. Successfully completed the advanced <strong class="text-white">StrategyCoast</strong> course.',
     achievementsTitle: 'Key Achievements',
+    
+    // --- THÊM MỚI ---
+    achievementVMedical: '<strong class="text-white">V Medical:</strong> Within 3 months, <strong class="text-white">tripled revenue</strong> compared to the previous period, achieving the <strong class="text-white">highest ever</strong> since inception. Developed a comprehensive CRM management system.',
+    
     achievementJNT: '<strong class="text-white">J&T Express:</strong> Within 6 months, grew the brand to become the <strong class="text-white">largest logistics channel in Vietnam</strong> by follower count, surpassing competitor GHTK.',
     achievementIntermec: '<strong class="text-white">Intermec:</strong> Successfully operated & executed marketing with a <strong class="text-white">ROAS of 25%</strong>.',
     achievementBichNa: '<strong class="text-white">BichNa Beauty:</strong> Drove growth in the dermatology segment with a <strong class="text-white">ROAS of 22%</strong>.',
@@ -151,6 +163,10 @@ export const translations = {
 
     // --- Experience Section (Timeline) ---
     workProcessTitle: 'Work Process',
+    
+    // --- THÊM MỚI ---
+    jobTitleVMedical: 'Marketing Manager',
+    
     jobTitle1: 'Marketing Manager',
     jobTitle2: 'Marketing Manager',
     jobTitle3: 'Senior Digital Marketing Specialist',

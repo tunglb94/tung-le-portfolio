@@ -124,6 +124,14 @@ export default function AboutSection() {
             >
               <h3 className="text-2xl font-bold text-cyan-400 mb-6 flex items-center gap-3"><TrophyIcon /> {t.achievementsTitle}</h3>
               <div className="space-y-6">
+                
+                {/* --- THÊM MỚI V MEDICAL TẠI ĐÂY --- */}
+                <div className="bg-zinc-800/50 p-6 rounded-lg flex items-center gap-4">
+                   <ChartIcon />
+                   <p className="text-lg text-gray-300" dangerouslySetInnerHTML={{ __html: t.achievementVMedical }} />
+                </div>
+                {/* ---------------------------------- */}
+                
                 <div className="bg-zinc-800/50 p-6 rounded-lg">
                   <p className="text-lg text-gray-300" dangerouslySetInnerHTML={{ __html: t.achievementJNT }} />
                 </div>
