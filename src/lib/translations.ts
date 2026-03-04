@@ -1,25 +1,18 @@
-// src/lib/translations.ts
-
 export const translations = {
   // =================================================================
   // TIẾNG VIỆT
   // =================================================================
   vi: {
-    // --- Header ---
     navAbout: 'Tùng Lê là ai?',
     navExperience: 'Kinh nghiệm & Năng lực',
     navProcess: 'Quá trình làm việc',
     navProjects: 'Dự án đã làm',
-
-    // --- Hero Section ---
     heroTitle: 'Tùng Lê: Kiến Tạo Chiến Lược Marketing Đột Phá',
     heroDescription: `Với hơn <span class="highlight">8 năm kinh nghiệm</span> chuyên sâu trong lĩnh vực marketing, trong đó có <span class="highlight">3 năm ở vị trí Leader</span> và <span class="highlight">2 năm ở vị trí Manager</span>. Tùng Lê chuyên <span class="highlight"> setup, vận hành mảng marketing</span> cho các doanh nghiệp vừa và nhỏ, đồng thời tư vấn chiến lược marketing hiệu quả cho BOD, đặc biệt tập trung vào <span class="highlight"> Performance Marketing</span>.`,
     heroCTAEmail: 'Gửi Email Ngay',
     heroCTAZalo: 'Nhắn Zalo',
     heroCTACall: 'Gọi Ngay',
     heroClients: 'Các client đã tư vấn và làm việc:',
-
-    // --- About Section ---
     aboutTitle: 'Tùng Lê Là Ai?',
     aboutSubtitle: 'Lê Bá Tùng (1994) - Tốt nghiệp Đại học Tôn Đức Thắng',
     coreCompetencies: 'Năng Lực Cốt Lõi',
@@ -33,7 +26,6 @@ export const translations = {
     certificationsDesc: 'Được đào tạo bài bản và sở hữu các chứng chỉ quan trọng từ <strong class="text-white">Google Ads (Search, Display, Shopping) & Measurement</strong>, <strong class="text-white">Meta Blueprint (Community, Instagram, Facebook Page)</strong>. Đồng thời, hoàn thành xuất sắc khóa học chuyên sâu <strong class="text-white">StrategyCoast</strong>.',
     achievementsTitle: 'Thành Tích Nổi Bật',
     
-    // --- CẬP NHẬT V MEDICAL ---
     achievementVMedical: `
       <strong class="text-white">V Medical Việt Nam:</strong> 
       <ul class="list-disc ml-5 mt-2 space-y-1">
@@ -47,7 +39,6 @@ export const translations = {
     achievementIntermec: '<strong class="text-white">Intermec:</strong> Vận hành & triển khai marketing thành công với <strong class="text-white">ROAS đạt 25%</strong>.',
     achievementBichNa: '<strong class="text-white">BichNa Beauty:</strong> Tăng trưởng mảng da liễu với <strong class="text-white">ROAS đạt 22%</strong>.',
     
-    // --- Experience Content Section ---
     experienceTitle: 'Kinh Nghiệm & Năng Lực Chuyên Môn',
     experienceSubtitle: 'Kết hợp tư duy chiến lược, kỹ năng phân tích dữ liệu chuyên sâu và năng lực quản trị để tối đa hóa hiệu quả marketing.',
     dataStrategyTitle: 'Phân Tích Dữ Liệu & Tư Vấn Chiến Lược',
@@ -66,7 +57,6 @@ export const translations = {
     aiGeneralTitle: 'Công Cụ AI (General)',
     aiMediaTitle: 'Công Cụ AI (Image/Video)',
 
-    // --- Experience Section (Timeline) ---
     workProcessTitle: 'Quá trình Làm Việc',
     jobTitleVMedical: 'Marketing Manager',
     jobTitle1: 'Marketing Manager',
@@ -76,7 +66,6 @@ export const translations = {
     jobTitle5: 'Product Development Specialist',
     jobTitle6: 'Account Executive',
 
-    // --- Projects Section ---
     projectsTitle: 'Các Dự Án Đã Triển Khai',
     projectsSubtitle: 'Từ ý tưởng, chiến lược đến triển khai thực tế và đo lường hiệu quả.',
     bjfTitle: 'Hệ thống Website Vàng Bạc Đá Quý BJF',
@@ -97,6 +86,10 @@ export const translations = {
     nankyTitle: 'Founder Thương Hiệu Nanky Beauty',
     nankyDescription: 'Với vai trò là <strong class="highlight">Founder</strong>, đã xây dựng Nanky Beauty từ những viên gạch đầu tiên. Định vị thương hiệu hướng tới <strong class="text-white">phân khúc cao cấp</strong>, tập trung vào việc xây dựng hình ảnh sang trọng, chuyên nghiệp và thu hút tệp <strong class="highlight">khách hàng nước ngoài</strong>. Tập trung vào chất lượng dịch vụ high-class, đào tạo đội ngũ kỹ thuật viên bài bản và xây dựng một cộng đồng khách hàng trung thành thông qua các chiến lược branding và social media hiệu quả.',
     
+    // --- DỰ ÁN CRM V MEDICAL MỚI THÊM ---
+    vMedicalCrmTitle: 'Hệ Thống CRM V Medical',
+    vMedicalCrmDesc: 'Hệ thống CRM quản lý vận hành toàn diện được phát triển riêng cho V Medical. Hỗ trợ tối ưu hóa quy trình chăm sóc khách hàng, theo dõi lịch hẹn, quản lý dữ liệu chiến dịch marketing và đo lường hiệu suất đội ngũ Sale/Marketing một cách chuẩn xác.',
+
     landPriceToolTitle: 'Tool Thu Thập Giá Đất',
     landPriceToolDesc: 'Hệ thống tự động quét và thu thập dữ liệu giá đất tại TP.HCM theo thời gian thực, phục vụ cho việc phân tích và đầu tư.',
     nankyCrmTitle: 'Hệ Thống CRM Nanky Beauty',
@@ -109,21 +102,16 @@ export const translations = {
   // ENGLISH
   // =================================================================
   en: {
-    // --- Header ---
     navAbout: 'Who is Tung Le?',
     navExperience: 'Experience & Skills',
     navProcess: 'Work Process',
     navProjects: 'Projects',
-
-    // --- Hero Section ---
     heroTitle: 'Tung Le: Crafting Breakthrough Marketing Strategies',
     heroDescription: `With over <span class="highlight">8 years of experience</span> in marketing, including <span class="highlight">3 years as a Leader</span> and <span class="highlight">2 years as a Manager</span>. Tung Le specializes in <span class="highlight">setting up and operating marketing departments</span> for small and medium-sized enterprises, while also providing effective marketing strategy consulting for the Board of Directors, with a special focus on <span class="highlight">Performance Marketing</span>.`,
     heroCTAEmail: 'Email Now',
     heroCTAZalo: 'Zalo Message',
     heroCTACall: 'Call Now',
     heroClients: 'Clients I\'ve consulted for and worked with:',
-
-    // --- About Section ---
     aboutTitle: 'Who is Tung Le?',
     aboutSubtitle: 'Le Ba Tung (1994) - Graduated from Ton Duc Thang University',
     coreCompetencies: 'Core Competencies',
@@ -137,7 +125,6 @@ export const translations = {
     certificationsDesc: 'Formally trained and hold key certifications from <strong class="text-white">Google Ads (Search, Display, Shopping) & Measurement</strong>, <strong class="text-white">Meta Blueprint (Community, Instagram, Facebook Page)</strong>. Successfully completed the advanced <strong class="text-white">StrategyCoast</strong> course.',
     achievementsTitle: 'Key Achievements',
     
-    // --- UPDATE V MEDICAL ---
     achievementVMedical: `
       <strong class="text-white">V Medical Vietnam:</strong> 
       <ul class="list-disc ml-5 mt-2 space-y-1">
@@ -150,8 +137,6 @@ export const translations = {
     achievementJNT: '<strong class="text-white">J&T Express:</strong> Within 6 months, grew the brand to become the <strong class="text-white">largest logistics channel in Vietnam</strong> by follower count, surpassing competitor GHTK.',
     achievementIntermec: '<strong class="text-white">Intermec:</strong> Successfully operated & executed marketing with a <strong class="text-white">ROAS of 25%</strong>.',
     achievementBichNa: '<strong class="text-white">BichNa Beauty:</strong> Drove growth in the dermatology segment with a <strong class="text-white">ROAS of 22%</strong>.',
-
-    // --- Experience Content Section ---
     experienceTitle: 'Experience & Professional Expertise',
     experienceSubtitle: 'Combining strategic thinking, in-depth data analysis, and management skills to maximize marketing effectiveness.',
     dataStrategyTitle: 'Data Analysis & Strategic Consulting',
@@ -169,8 +154,6 @@ export const translations = {
     marketingOpsTitle: 'Marketing Management & Operations',
     aiGeneralTitle: 'AI Tools (General)',
     aiMediaTitle: 'AI Tools (Image/Video)',
-
-    // --- Experience Section (Timeline) ---
     workProcessTitle: 'Work Process',
     jobTitleVMedical: 'Marketing Manager',
     jobTitle1: 'Marketing Manager',
@@ -179,8 +162,6 @@ export const translations = {
     jobTitle4: 'Digital Marketing Leader',
     jobTitle5: 'Product Development Specialist',
     jobTitle6: 'Account Executive',
-    
-    // --- Projects Section ---
     projectsTitle: 'Deployed Projects',
     projectsSubtitle: 'From concept and strategy to practical implementation and performance measurement.',
     bjfTitle: 'BJF Jewelry Store Website System',
@@ -191,21 +172,23 @@ export const translations = {
     viewLive: 'View Live',
     sourceCode: 'Source Code',
     clickViewLive: 'Click to view live site',
-
     doctorAiTitle: 'AI Health Consultation App - Doctor AI',
-    doctorAiDescription: 'A <strong class="highlight">community-focused</strong> project utilizing the power of Artificial Intelligence to provide initial medical support for everyone. The app helps:',
-    doctorAiPoint1: '<strong class="text-white">Symptom Analysis:</strong> Users can describe their conditions for the AI to provide preliminary diagnoses and advice.',
-    doctorAiPoint2: '<strong class="text-white">Addressing Sensitive Issues:</strong> Offers a safe space to ask about sensitive medical conditions that are difficult to discuss directly.',
-    doctorAiPoint3: '<strong class="text-white">Reading Medical Results:</strong> Assists in reading and interpreting complex test results like X-rays and MRIs using advanced AI technology.',
-    
+    doctorAiDescription: 'A <strong class="highlight">community-focused</strong> project utilizing the power of Artificial Intelligence to provide initial medical support for everyone.',
+    doctorAiPoint1: '<strong class="text-white">Symptom Analysis:</strong> Users can describe their conditions for the AI to provide preliminary diagnoses.',
+    doctorAiPoint2: '<strong class="text-white">Addressing Sensitive Issues:</strong> Offers a safe space to ask about sensitive medical conditions.',
+    doctorAiPoint3: '<strong class="text-white">Reading Medical Results:</strong> Assists in interpreting test results like X-rays and MRIs.',
     nankyTitle: 'Founder of Nanky Beauty Brand',
-    nankyDescription: 'As the <strong class="highlight">Founder</strong>, I built Nanky Beauty from the ground up, positioning the brand for the <strong class="text-white">high-end segment</strong>. The focus was on creating a luxurious, professional image to attract a clientele of <strong class="highlight">foreign customers</strong>. We concentrated on high-class service quality, professionally trained technicians, and building a loyal customer community through effective branding and social media strategies.',
+    nankyDescription: 'As the <strong class="highlight">Founder</strong>, I built Nanky Beauty from the ground up, positioning the brand for the <strong class="text-white">high-end segment</strong>.',
     
+    // --- V MEDICAL CRM PROJECT - ENGLISH ---
+    vMedicalCrmTitle: 'V Medical CRM System',
+    vMedicalCrmDesc: 'A comprehensive operational CRM system custom-developed for V Medical. It optimizes customer care workflows, tracks appointments, manages marketing campaign data, and accurately measures the performance of the sales/marketing teams.',
+
     landPriceToolTitle: 'Land Price Data Collection Tool',
-    landPriceToolDesc: 'An automated system that scans and collects real-time land price data in Ho Chi Minh City for analysis and investment purposes.',
+    landPriceToolDesc: 'An automated system that scans and collects real-time land price data in Ho Chi Minh City.',
     nankyCrmTitle: 'Nanky Beauty CRM System',
-    nankyCrmDesc: 'Custom-designed CRM software to manage appointments, customer information, and marketing campaigns for the spa system.',
+    nankyCrmDesc: 'Custom-designed CRM software to manage appointments and marketing campaigns.',
     otherSystemsTitle: '...And Many Other Systems',
-    otherSystemsDesc: 'Including a CRM for DNA and other self-developed software and tools to optimize workflows and manage resources effectively.',
+    otherSystemsDesc: 'Including a CRM for DNA and other self-developed software to optimize workflows.',
   },
 };

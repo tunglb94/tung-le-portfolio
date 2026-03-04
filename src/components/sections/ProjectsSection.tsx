@@ -2,7 +2,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { 
-  Layers, Github, ExternalLink, HeartPulse, MapPin, Building, Bot, Wrench 
+  Layers, Github, ExternalLink, HeartPulse, MapPin, Building, Bot, Wrench, BarChart3
 } from 'lucide-react';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -30,6 +30,7 @@ export default function ProjectsSection() {
           </p>
         </motion.div>
 
+        {/* --- DỰ ÁN 1: BJF SYSTEM --- */}
         <div className="mb-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             
@@ -101,6 +102,7 @@ export default function ProjectsSection() {
           </div>
         </div>
 
+        {/* --- DỰ ÁN 2: DOCTOR AI --- */}
         <div className="mb-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
 
@@ -109,13 +111,12 @@ export default function ProjectsSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              // Điều chỉnh grid và kích thước ảnh tại đây
-              className="grid grid-cols-2 gap-3 max-w-sm mx-auto p-4 bg-zinc-800/50 rounded-lg shadow-inner border border-white/10" // Thêm padding và background cho khung
+              className="grid grid-cols-2 gap-3 max-w-sm mx-auto p-4 bg-zinc-800/50 rounded-lg shadow-inner border border-white/10"
             >
               <Image src="/projects/doctor-ai-1.jpg" alt="Doctor AI Screen 1" width={100} height={200} className="rounded-xl shadow-lg transform rotate-3 border-2 border-white/10 mx-auto w-full h-auto" />
-              <Image src="/projects/doctor-ai-2.jpg" alt="Doctor AI Screen 2" width={100} height={200} className="rounded-xl shadow-lg transform -rotate-3 mt-4 border-2 border-white/10 mx-auto w-full h-auto" /> {/* Giảm mt-8 xuống mt-4 */}
+              <Image src="/projects/doctor-ai-2.jpg" alt="Doctor AI Screen 2" width={100} height={200} className="rounded-xl shadow-lg transform -rotate-3 mt-4 border-2 border-white/10 mx-auto w-full h-auto" />
               <Image src="/projects/doctor-ai-3.jpg" alt="Doctor AI Screen 3" width={100} height={200} className="rounded-xl shadow-lg transform -rotate-2 border-2 border-white/10 mx-auto w-full h-auto" />
-              <Image src="/projects/doctor-ai-4.jpg" alt="Doctor AI Screen 4" width={100} height={200} className="rounded-xl shadow-lg transform rotate-2 mt-4 border-2 border-white/10 mx-auto w-full h-auto" /> {/* Giảm mt-8 xuống mt-4 */}
+              <Image src="/projects/doctor-ai-4.jpg" alt="Doctor AI Screen 4" width={100} height={200} className="rounded-xl shadow-lg transform rotate-2 mt-4 border-2 border-white/10 mx-auto w-full h-auto" />
             </motion.div>
             
             <motion.div
@@ -139,6 +140,48 @@ export default function ProjectsSection() {
           </div>
         </div>
 
+        {/* --- DỰ ÁN 3: V MEDICAL CRM (MỚI THÊM) --- */}
+        <div className="mb-24">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.8 }}
+            >
+              <BarChart3 size={40} className="text-cyan-400 mb-4" />
+              <h3 className="text-3xl font-bold text-cyan-400 mb-4">
+                {t.vMedicalCrmTitle}
+              </h3>
+              <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+                {t.vMedicalCrmDesc}
+              </p>
+              
+              <div className="text-gray-400 text-base mb-6 space-y-2">
+                <p><strong>{t.company}:</strong> V Medical Việt Nam</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="bg-zinc-800/50 p-4 rounded-xl shadow-inner border border-white/10"
+            >
+              <Image
+                src="/projects/vmedical-crm.jpg"
+                alt="V Medical CRM Dashboard"
+                width={1200}
+                height={675}
+                className="rounded-lg shadow-2xl w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-500"
+              />
+            </motion.div>
+          </div>
+        </div>
+
+        {/* --- DỰ ÁN 4: NANKY BEAUTY --- */}
         <div className="mb-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -153,7 +196,6 @@ export default function ProjectsSection() {
               </h3>
               <p className="text-lg text-gray-300 mb-6" dangerouslySetInnerHTML={{ __html: t.nankyDescription }} />
               
-              {/* THÊM WEBSITE CỦA NANKY BEAUTY */}
               <div className="text-gray-400 text-base mb-6 space-y-2">
                 <p><strong>{t.website}:</strong> <a href="http://nankybeauty.com/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">http://nankybeauty.com/</a></p>
               </div>
@@ -185,6 +227,7 @@ export default function ProjectsSection() {
           </div>
         </div>
 
+        {/* --- CÁC DỰ ÁN NHỎ KHÁC --- */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <motion.div
             className="bg-zinc-800/50 p-6 rounded-lg border border-white/10"
