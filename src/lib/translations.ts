@@ -33,8 +33,15 @@ export const translations = {
     certificationsDesc: 'Được đào tạo bài bản và sở hữu các chứng chỉ quan trọng từ <strong class="text-white">Google Ads (Search, Display, Shopping) & Measurement</strong>, <strong class="text-white">Meta Blueprint (Community, Instagram, Facebook Page)</strong>. Đồng thời, hoàn thành xuất sắc khóa học chuyên sâu <strong class="text-white">StrategyCoast</strong>.',
     achievementsTitle: 'Thành Tích Nổi Bật',
     
-    // --- THÊM MỚI ---
-    achievementVMedical: '<strong class="text-white">V Medical:</strong> Trong 3 tháng, đưa doanh số <strong class="text-white">gấp 3 lần</strong> giai đoạn trước, và đạt mức <strong class="text-white">cao nhất từ khi thành lập</strong> doanh nghiệp. Phát triển hệ thống CRM, quản lý toàn diện.',
+    // --- CẬP NHẬT V MEDICAL ---
+    achievementVMedical: `
+      <strong class="text-white">V Medical Việt Nam:</strong> 
+      <ul class="list-disc ml-5 mt-2 space-y-1">
+        <li>Đưa doanh thu khách mới marketing đạt <strong class="text-white">TOP doanh thu</strong> từ lúc thành lập doanh nghiệp.</li>
+        <li>Tối ưu chi phí ROAS từ <strong class="text-white">80% về 27.6%</strong>.</li>
+        <li>Phát triển hệ thống <strong class="text-white">CRM quản lý toàn diện</strong> doanh nghiệp.</li>
+      </ul>
+    `,
     
     achievementJNT: '<strong class="text-white">J&T Express:</strong> Trong 6 tháng, đưa thương hiệu trở thành kênh có lượng follower về logistic <strong class="text-white">lớn nhất Việt Nam</strong>, vượt qua đối thủ GHTK.',
     achievementIntermec: '<strong class="text-white">Intermec:</strong> Vận hành & triển khai marketing thành công với <strong class="text-white">ROAS đạt 25%</strong>.',
@@ -61,10 +68,7 @@ export const translations = {
 
     // --- Experience Section (Timeline) ---
     workProcessTitle: 'Quá trình Làm Việc',
-    
-    // --- THÊM MỚI ---
     jobTitleVMedical: 'Marketing Manager',
-    
     jobTitle1: 'Marketing Manager',
     jobTitle2: 'Marketing Manager',
     jobTitle3: 'Senior Digital Marketing Specialist',
@@ -75,7 +79,6 @@ export const translations = {
     // --- Projects Section ---
     projectsTitle: 'Các Dự Án Đã Triển Khai',
     projectsSubtitle: 'Từ ý tưởng, chiến lược đến triển khai thực tế và đo lường hiệu quả.',
-    
     bjfTitle: 'Hệ thống Website Vàng Bạc Đá Quý BJF',
     bjfDescription: 'Xây dựng và phát triển một hệ thống <strong class="highlight">full-stack</strong> toàn diện, bao gồm cả frontend và backend cho thương hiệu trang sức BJF. Hệ thống backend được thiết kế riêng, cung cấp một giao diện quản trị mạnh mẽ cho phép <strong class="text-white">quản lý toàn bộ sản phẩm, đơn hàng, nhân viên, và dữ liệu khách hàng</strong> một cách chi tiết và bảo mật.',
     company: 'Công ty',
@@ -91,7 +94,6 @@ export const translations = {
     doctorAiPoint2: '<strong class="text-white">Giải quyết vấn đề thầm kín:</strong> Cung cấp một không gian an toàn để hỏi về các bệnh lý nhạy cảm, khó chia sẻ trực tiếp.',
     doctorAiPoint3: '<strong class="text-white">Đọc kết quả y tế:</strong> Hỗ trợ đọc và giải thích các kết quả xét nghiệm phức tạp như X-quang, MRI bằng công nghệ AI tiên tiến.',
     
-    // NỘI DUNG MỚI CHO NANKY BEAUTY
     nankyTitle: 'Founder Thương Hiệu Nanky Beauty',
     nankyDescription: 'Với vai trò là <strong class="highlight">Founder</strong>, đã xây dựng Nanky Beauty từ những viên gạch đầu tiên. Định vị thương hiệu hướng tới <strong class="text-white">phân khúc cao cấp</strong>, tập trung vào việc xây dựng hình ảnh sang trọng, chuyên nghiệp và thu hút tệp <strong class="highlight">khách hàng nước ngoài</strong>. Tập trung vào chất lượng dịch vụ high-class, đào tạo đội ngũ kỹ thuật viên bài bản và xây dựng một cộng đồng khách hàng trung thành thông qua các chiến lược branding và social media hiệu quả.',
     
@@ -135,8 +137,15 @@ export const translations = {
     certificationsDesc: 'Formally trained and hold key certifications from <strong class="text-white">Google Ads (Search, Display, Shopping) & Measurement</strong>, <strong class="text-white">Meta Blueprint (Community, Instagram, Facebook Page)</strong>. Successfully completed the advanced <strong class="text-white">StrategyCoast</strong> course.',
     achievementsTitle: 'Key Achievements',
     
-    // --- THÊM MỚI ---
-    achievementVMedical: '<strong class="text-white">V Medical:</strong> Within 3 months, <strong class="text-white">tripled revenue</strong> compared to the previous period, achieving the <strong class="text-white">highest ever</strong> since inception. Developed a comprehensive CRM management system.',
+    // --- UPDATE V MEDICAL ---
+    achievementVMedical: `
+      <strong class="text-white">V Medical Vietnam:</strong> 
+      <ul class="list-disc ml-5 mt-2 space-y-1">
+        <li>Achieved <strong class="text-white">TOP new customer revenue</strong> since company inception.</li>
+        <li>Optimized ROAS from <strong class="text-white">80% down to 27.6%</strong>.</li>
+        <li>Developed a <strong class="text-white">comprehensive CRM</strong> management system.</li>
+      </ul>
+    `,
     
     achievementJNT: '<strong class="text-white">J&T Express:</strong> Within 6 months, grew the brand to become the <strong class="text-white">largest logistics channel in Vietnam</strong> by follower count, surpassing competitor GHTK.',
     achievementIntermec: '<strong class="text-white">Intermec:</strong> Successfully operated & executed marketing with a <strong class="text-white">ROAS of 25%</strong>.',
@@ -163,10 +172,7 @@ export const translations = {
 
     // --- Experience Section (Timeline) ---
     workProcessTitle: 'Work Process',
-    
-    // --- THÊM MỚI ---
     jobTitleVMedical: 'Marketing Manager',
-    
     jobTitle1: 'Marketing Manager',
     jobTitle2: 'Marketing Manager',
     jobTitle3: 'Senior Digital Marketing Specialist',
@@ -177,7 +183,6 @@ export const translations = {
     // --- Projects Section ---
     projectsTitle: 'Deployed Projects',
     projectsSubtitle: 'From concept and strategy to practical implementation and performance measurement.',
-    
     bjfTitle: 'BJF Jewelry Store Website System',
     bjfDescription: 'Built and developed a comprehensive <strong class="highlight">full-stack</strong> system, including both frontend and backend for the BJF jewelry brand. The custom-built backend provides a powerful admin interface for detailed and secure <strong class="text-white">management of all products, orders, employees, and customer data</strong>.',
     company: 'Company',
@@ -193,7 +198,6 @@ export const translations = {
     doctorAiPoint2: '<strong class="text-white">Addressing Sensitive Issues:</strong> Offers a safe space to ask about sensitive medical conditions that are difficult to discuss directly.',
     doctorAiPoint3: '<strong class="text-white">Reading Medical Results:</strong> Assists in reading and interpreting complex test results like X-rays and MRIs using advanced AI technology.',
     
-    // NEW CONTENT FOR NANKY BEAUTY
     nankyTitle: 'Founder of Nanky Beauty Brand',
     nankyDescription: 'As the <strong class="highlight">Founder</strong>, I built Nanky Beauty from the ground up, positioning the brand for the <strong class="text-white">high-end segment</strong>. The focus was on creating a luxurious, professional image to attract a clientele of <strong class="highlight">foreign customers</strong>. We concentrated on high-class service quality, professionally trained technicians, and building a loyal customer community through effective branding and social media strategies.',
     

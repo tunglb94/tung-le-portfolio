@@ -1,4 +1,3 @@
-// src/components/sections/AboutSection.tsx
 'use client';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -8,26 +7,21 @@ import {
     ExternalLink, Users, Zap, Database, Award, TrendingUp 
 } from 'lucide-react'; 
 
-
 // Dữ liệu Chứng Chỉ (Giữ nguyên)
 const certifications = [
-  // Google
   { src: '/about/google-search-cert.png', alt: 'Google Ads Search Certification', link: 'https://skillshop.credential.net/449524fe-376f-44b5-847f-281172716840#acc.Dkm0drOX' },
   { src: '/about/google-display-cert.png', alt: 'Google Ads Display Certification', link: 'https://skillshop.credential.net/9e3f0309-ea8e-4df0-bd95-efe37028f0d0#acc.x7GOIcHd' },
   { src: '/about/google-shopping-cert.png', alt: 'AI-Powered Shopping Ads Certification', link: 'https://skillshop.credential.net/1855207d-761f-4be7-945d-c1588312aa4b#acc.clvXwCjO' },
   { src: '/about/google-measurement-cert.png', alt: 'Google Ads Measurement Certification', link: 'https://skillshop.credential.net/090a9aa8-2e5e-45c0-b7c0-e758a7d20f39#acc.MVNtD4mx' },
-  // Meta
   { src: '/about/meta-community-cert.png', alt: 'Meta Community Strategies', link: 'https://certifications.facebookblueprint.com/student/award/nRs3ocTCrauNgbgAurkjhovB' },
   { src: '/about/meta-instagram-cert.png', alt: 'Meta Instagram Business Presence', link: 'https://www.facebookblueprint.com/student/award/QbYt9fksupzExXzSVbbh8imA' },
   { src: '/about/meta-facebook-cert.png', alt: 'Meta Facebook Page Presence', link: 'https://www.facebookblueprint.com/student/award/gyYk7aSoyPb4DF8GVJ7pfVtF' },
-  // CHỨNG CHỈ MỚI: Google AI Essentials
   { src: '/about/google-ai-essentials-cert.png', alt: 'Google AI Essentials', link: 'https://www.facebookblueprint.com/student/award/8cQjNDGzUh4NtE3RKH3kyc7x' },
 ];
 
 const CertImage = ({ src, alt, link, index }: { src: string, alt: string, link: string, index: number }) => (
     <motion.div
         className="relative bg-zinc-800 rounded-lg overflow-hidden group border border-white/10 shadow-xl flex items-center justify-center w-full aspect-square"
-        // Animation được giữ nguyên
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
@@ -49,7 +43,6 @@ const CertImage = ({ src, alt, link, index }: { src: string, alt: string, link: 
         </a>
     </motion.div>
 )
-
 
 export default function AboutSection() {
   const { language } = useLanguage();
@@ -82,7 +75,7 @@ export default function AboutSection() {
           {/* CỘT BÊN TRÁI: NỘI DUNG CHÍNH */}
           <div className="space-y-12">
             
-            {/* KHỐI 1: CORE COMPETENCIES (Delay 0.0) */}
+            {/* KHỐI 1: CORE COMPETENCIES */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -115,7 +108,7 @@ export default function AboutSection() {
               </div>
             </motion.div>
             
-            {/* KHỐI 2: ACHIEVEMENTS (Delay 0.2) */}
+            {/* KHỐI 2: ACHIEVEMENTS */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -125,12 +118,30 @@ export default function AboutSection() {
               <h3 className="text-2xl font-bold text-cyan-400 mb-6 flex items-center gap-3"><TrophyIcon /> {t.achievementsTitle}</h3>
               <div className="space-y-6">
                 
-                {/* --- THÊM MỚI V MEDICAL TẠI ĐÂY --- */}
-                <div className="bg-zinc-800/50 p-6 rounded-lg flex items-center gap-4">
-                   <ChartIcon />
-                   <p className="text-lg text-gray-300" dangerouslySetInnerHTML={{ __html: t.achievementVMedical }} />
+                {/* --- CẬP NHẬT V MEDICAL VỚI HÌNH ẢNH CRM --- */}
+                <div className="bg-zinc-800/50 p-6 rounded-lg flex flex-col gap-4">
+                   <div className="flex items-start gap-4">
+                      <ChartIcon />
+                      <div className="text-lg text-gray-300" dangerouslySetInnerHTML={{ __html: t.achievementVMedical }} />
+                   </div>
+                   
+                   {/* Hình ảnh hệ thống CRM */}
+                   <motion.div 
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
+                      className="mt-2 rounded-lg overflow-hidden border border-white/10 shadow-2xl"
+                   >
+                      <Image 
+                        src="/projects/vmedical-crm.jpg" 
+                        alt="V Medical CRM System" 
+                        width={800} 
+                        height={450} 
+                        className="w-full h-auto hover:scale-105 transition-transform duration-500"
+                      />
+                      <p className="text-[10px] text-gray-500 mt-1 italic text-center">Giao diện hệ thống CRM quản lý vận hành tại V Medical Việt Nam</p>
+                   </motion.div>
                 </div>
-                {/* ---------------------------------- */}
                 
                 <div className="bg-zinc-800/50 p-6 rounded-lg">
                   <p className="text-lg text-gray-300" dangerouslySetInnerHTML={{ __html: t.achievementJNT }} />
@@ -146,7 +157,7 @@ export default function AboutSection() {
               </div>
             </motion.div>
             
-            {/* KHỐI 3: CERTIFICATIONS (CHỨNG CHỈ GOOGLE/META) */}
+            {/* KHỐI 3: CERTIFICATIONS */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -171,12 +182,7 @@ export default function AboutSection() {
           </div>
 
           {/* CỘT BÊN PHẢI: ẢNH VÀ STRATEGYCOAST */}
-          {/* KHẮC PHỤC LỖI RENDER: ĐẶT MẶC ĐỊNH LÀ HIỂN THỊ */}
-          <div 
-            className="space-y-6 pt-1 md:pt-0" 
-          >
-            
-            {/* StrategyCoast (Thêm lại motion để giữ hiệu ứng animation) */}
+          <div className="space-y-6 pt-1 md:pt-0">
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -187,7 +193,6 @@ export default function AboutSection() {
                 <Image src="/about/strategycoast.jpg" alt="StrategyCoast Coaches" width={800} height={400} className="rounded-lg shadow-2xl object-cover w-full h-auto" />
             </motion.div>
             
-            {/* Các ảnh Meta Event (Có thể thêm motion cho từng ảnh nếu muốn) */}
             <Image src="/about/meta-event-2.jpg" alt="Meta Event 2" width={500} height={400} className="rounded-lg shadow-2xl object-cover w-full" />
             <Image src="/about/meta-event-1.jpg" alt="Meta Event 1" width={500} height={400} className="rounded-lg shadow-2xl object-cover w-full" />
             <Image src="/about/meta-event-3.jpg" alt="Meta Event 3" width={500} height={400} className="rounded-lg shadow-2xl object-cover w-full" />
