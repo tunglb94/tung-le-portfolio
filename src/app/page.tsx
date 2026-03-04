@@ -1,7 +1,7 @@
 'use client';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Mousewheel, Pagination, Keyboard, Navigation } from 'swiper/modules';
-import { motion } from 'framer-motion'; // <-- Import thêm framer-motion cho hiệu ứng hiện ra
+import { motion } from 'framer-motion'; 
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -25,7 +25,7 @@ export default function HomePage() {
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.8 }} // Hiện ra sau khi web load 1.5s
+        transition={{ delay: 1.5, duration: 0.8 }} 
         className="fixed bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-[100] pointer-events-none"
       >
         <div className="bg-zinc-900/60 backdrop-blur-md border border-cyan-500/30 rounded-full px-4 py-2 md:px-6 md:py-3 flex flex-col md:flex-row items-center gap-2 md:gap-6 shadow-[0_0_20px_rgba(34,211,238,0.15)]">
@@ -67,6 +67,7 @@ export default function HomePage() {
         modules={[Mousewheel, Pagination, Keyboard, Navigation]}
         className="h-screen w-full"
         onSwiper={(swiper) => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (window as any).mainSwiper = swiper;
         }}
       >

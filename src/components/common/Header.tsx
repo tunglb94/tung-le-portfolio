@@ -15,13 +15,11 @@ export default function Header() {
   ]
 
   const handleSlideTo = (index: number) => {
-    // Tìm thực thể Swiper đang chạy trên trang và nhảy đến slide index
-    const swiperEl = document.querySelector('.swiper')?.shadowRoot ? 
-                     (document.querySelector('.swiper') as any).swiper : 
-                     (document.querySelector('.swiper') as any)?.swiper;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const swiper = (window as any).mainSwiper;
     
-    if (swiperEl) {
-      swiperEl.slideTo(index, 800); // Nhảy đến slide với tốc độ 800ms
+    if (swiper) {
+      swiper.slideTo(index, 800); // Nhảy đến slide với tốc độ 800ms
     }
   }
 
