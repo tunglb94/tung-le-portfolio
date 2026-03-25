@@ -129,8 +129,7 @@ export default function HeroSection() {
               className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 justify-items-center md:justify-items-start"
               variants={containerVariants}
               initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.5 }}
+              animate="show" // Đã fix: Đổi từ whileInView sang animate để đảm bảo hiển thị bên trong Swiper
             >
               {clientLogos.map((logo, index) => (
                 <motion.div 
