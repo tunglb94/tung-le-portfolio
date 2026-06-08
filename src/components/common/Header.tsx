@@ -28,13 +28,17 @@ export default function Header() {
       className="fixed top-0 left-0 w-full z-50 
                  bg-zinc-900/80 backdrop-blur-md shadow-md"
     >
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <button 
-          onClick={() => handleSlideTo(0)} // Về slide đầu tiên (Hero)
-          className="text-2xl font-bold tracking-wider text-white hover:text-cyan-400 transition-colors"
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
+        <a 
+          href="#hero" // Đảm bảo trỏ về ID #hero
+          onClick={(e) => {
+             e.preventDefault();
+             handleScrollTo('#hero'); // Cuộn về HeroSection
+          }}
+          className="text-xl font-bold tracking-wider text-white"
         >
-          Tùng Lê Portfolio
-        </button>
+          Tùng Lê
+        </a>
 
         <nav className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (

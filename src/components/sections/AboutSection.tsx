@@ -57,7 +57,7 @@ export default function AboutSection() {
   const ChartIcon = () => <TrendingUp className="h-6 w-6 text-cyan-400" />; 
 
   return (
-    <section id="about" className="bg-zinc-900 py-20 text-white">
+    <section id="about" className="bg-zinc-900 py-12 text-white">
       <div className="container mx-auto px-6">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -66,8 +66,8 @@ export default function AboutSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold hero-text-gradient">{t.aboutTitle}</h2>
-          <p className="text-lg text-gray-400 mt-4">{t.aboutSubtitle}</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold hero-text-gradient">{t.aboutTitle}</h2>
+          <p className="text-base text-gray-400 mt-2">{t.aboutSubtitle}</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">

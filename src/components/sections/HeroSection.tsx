@@ -16,6 +16,19 @@ const clientLogos = [
   { src: '/logos/bichna.png', alt: 'Bichna Clinic', url: 'https://bichnabeautyvn.com/' },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 }
+};
+
 export default function HeroSection() {
   const { language } = useLanguage(); 
   const t = translations[language]; 
@@ -27,31 +40,41 @@ export default function HeroSection() {
   ];
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center py-12 lg:py-0 overflow-hidden">
-      <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-        
-        {/* === LEFT CONTENT === */}
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col justify-center order-2 lg:order-1 text-center lg:text-left"
-        >
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+    <section
+      id="hero"
+      className="relative flex items-center justify-center pt-28 pb-10 overflow-hidden bg-zinc-950 text-white"
+    >
+      <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-end">
+        {/* === Cột bên trái: Nội dung văn bản === */}
+        <div className="flex flex-col justify-center order-2 md:order-1 text-center md:text-left">
+          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4 hero-text-gradient">
             {t.heroTitle}
           </h1>
+          <p
+            className="text-base md:text-lg text-gray-300 mb-5 max-w-xl mx-auto md:mx-0"
+            dangerouslySetInnerHTML={{ __html: t.heroDescription }}
+          />
           
-          <p className="text-base md:text-lg text-gray-400 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed"
-             dangerouslySetInnerHTML={{ __html: t.heroDescription }} />
-          
-          <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-6 mb-10 text-sm font-medium">
-            <a href="mailto:tunglb94@gmail.com" className="flex items-center justify-center gap-2 text-gray-300 hover:text-cyan-400 transition-colors">
-              <Mail size={18} /> tunglb94@gmail.com
-            </a>
-            <a href="tel:0946328867" className="flex items-center justify-center gap-2 text-gray-300 hover:text-cyan-400 transition-colors">
-              <Phone size={18} /> 094.632.8867
-            </a>
-          </div>
+          <motion.div
+            className="flex flex-col sm:flex-row justify-center md:justify-start gap-x-8 gap-y-3 mb-6 text-base"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="flex items-center justify-center md:justify-start">
+              <Mail size={20} className="mr-2 text-cyan-400" />
+              <a href="mailto:tunglb94@gmail.com" className="text-gray-300 hover:text-white">
+                tunglb94@gmail.com
+              </a>
+            </div>
+            <div className="flex items-center justify-center md:justify-start">
+              <Phone size={20} className="mr-2 text-cyan-400" />
+              <a href="tel:0946328867" className="text-gray-300 hover:text-white">
+                094.632.8867
+              </a>
+            </div>
+          </motion.div>
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap justify-center lg:justify-start gap-3">
@@ -62,18 +85,43 @@ export default function HeroSection() {
             ))}
           </div>
 
-          {/* Client Logos */}
-          <div className="mt-16">
-            <h3 className="text-xs uppercase tracking-[0.2em] font-bold text-gray-500 mb-6">{t.heroClients}</h3>
-            <div className="grid grid-cols-3 md:grid-cols-4 gap-3">
+          {/* === Logo khách hàng === */}
+          <div className="mt-10 md:mt-12 text-gray-400">
+            <h3 className="text-xl font-semibold mb-6">{t.heroClients}</h3>
+            
+            <motion.div
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 justify-items-center md:justify-items-start"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.5 }}
+            >
               {clientLogos.map((logo, index) => (
-                <div key={index} className="group bg-white/[0.03] border border-white/5 p-3 rounded-xl h-16 flex items-center justify-center transition-all hover:bg-white/[0.08]">
-                  <Image src={logo.src} alt={logo.alt} width={120} height={50} className="h-full w-auto object-contain opacity-50 group-hover:opacity-100 transition-opacity" />
-                </div>
+                <motion.div 
+                  key={index} 
+                  variants={itemVariants}
+                  className="w-full"
+                >
+                  <a
+                    href={logo.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white/5 p-4 rounded-lg h-24 w-full flex items-center justify-center
+                               transition-all duration-300 hover:bg-white/10 hover:scale-105"
+                  >
+                    <Image
+                      src={logo.src}
+                      alt={logo.alt}
+                      width={180}
+                      height={70}
+                      className="h-full w-auto object-contain"
+                    />
+                  </a>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
 
         {/* === RIGHT IMAGE === */}
         <motion.div 
@@ -85,9 +133,9 @@ export default function HeroSection() {
           <div className="absolute inset-0 bg-cyan-500/10 rounded-full blur-[100px] scale-110 animate-pulse"></div>
           <Image
             src="/tung-le-portrait.png"
-            alt="Portrait"
-            width={700}
-            height={900}
+            alt="Tùng Lê Portfolio Portrait"
+            width={500}
+            height={650}
             priority
             unoptimized
             className="relative z-10 w-full max-w-[450px] lg:max-w-[550px] h-auto drop-shadow-2xl"

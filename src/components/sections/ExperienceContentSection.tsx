@@ -60,18 +60,18 @@ export default function ExperienceContentSection() {
   const t = translations[language];
 
   return (
-    <section id="experience" className="bg-zinc-900 py-20 text-white relative overflow-hidden">
+    <section id="experience" className="bg-zinc-900 py-12 text-white relative overflow-hidden">
       <AnimatedBackground />
       <div className="container mx-auto px-6 relative z-10">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold hero-text-gradient">{t.experienceTitle}</h2>
-          <p className="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-extrabold hero-text-gradient">{t.experienceTitle}</h2>
+          <p className="text-base text-gray-400 mt-2 max-w-3xl mx-auto">
             {t.experienceSubtitle}
           </p>
         </motion.div>

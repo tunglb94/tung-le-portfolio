@@ -25,20 +25,20 @@ const TimelineItem = ({ data, index, title }: { data: typeof experienceData[0], 
   };
   return (
     <motion.div
-      className={`mb-8 flex justify-between items-center w-full ${isOdd ? 'md:flex-row-reverse' : 'md:flex-row'}`}
+      className={`mb-6 flex justify-between items-center w-full ${isOdd ? 'md:flex-row-reverse' : 'md:flex-row'}`}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.5 }}
       variants={itemVariants}
     >
-      <div className="order-1 md:w-5/12"></div>
+      <div className="order-1 md:w-3/12"></div>
       <div className="z-20 flex items-center order-1 bg-zinc-800 shadow-xl w-8 h-8 rounded-full">
         <h1 className="mx-auto font-semibold text-lg text-white">{experienceData.length - index}</h1>
       </div>
-      <div className={`order-1 ${isOdd ? 'md:text-right' : 'md:text-left'} bg-zinc-800/50 rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4`}>
-        <p className="text-cyan-400 text-sm">{data.date}</p>
-        <h3 className="mb-2 font-bold text-white text-xl">{data.company}</h3>
-        <p className="text-md leading-snug tracking-wide text-gray-300">{title}</p>
+      <div className={`order-1 ${isOdd ? 'md:text-right' : 'md:text-left'} bg-zinc-800/50 rounded-lg shadow-xl w-full md:w-7/12 px-5 py-3`}>
+        <p className="text-cyan-400 text-xs">{data.date}</p>
+        <h3 className="mb-1 font-bold text-white text-lg">{data.company}</h3>
+        <p className="text-sm leading-snug tracking-wide text-gray-300">{title}</p>
       </div>
     </motion.div>
   );
@@ -49,21 +49,21 @@ export default function ExperienceSection() {
   const t = translations[language];
 
   return (
-    <section id="process" className="bg-zinc-950 py-20 text-white">
+    <section id="process" className="bg-zinc-950 py-12 text-white">
       <div className="container mx-auto px-6">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <h2 className="text-4xl md:text-5xl font-extrabold hero-text-gradient">
             <BriefcaseIcon />
             {t.workProcessTitle}
           </h2>
         </motion.div>
-        <div className="relative wrap overflow-hidden p-2 md:p-10 h-full">
+        <div className="relative wrap overflow-hidden p-2 md:p-8 h-full">
           <motion.div 
             className="absolute border-2-2 border-cyan-500/30 h-full border"
             style={{ left: '50%' }}
